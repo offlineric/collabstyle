@@ -1,3 +1,232 @@
-@-moz-document domain('boards.4chan.org') {
+@-moz-document domain("boards.4chan.org") {
+
+#removestyle {
+  position: fixed;
+  top: 4rem;
+  right: 4rem;
+  padding: 1em;
+  cursor: pointer;
+}
+
+/*
+  http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+*/
+
+*,
+::before,
+::after {
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
+}
+
+/*
+  https://github.com/h5bp/html5-boilerplate/commit/1d320b59a390041f25cf87d790f6472a25a512ef
+*/
+
+::-moz-selection {
+  background: #b3d4fc;
+}
+
+::selection {
+  background: #b3d4fc;
+}
+
+/*
+  Now, normally you redefine the :focus style. I'm not.
+  !important needed because Stylish.
+*/
+
+:focus {
+  outline: 0 !important;
+}
+
+html {
+  font: 1em/1.4 sans-serif;
+  color: #3d3d3d;
+  background-color: #fafafa;
+  overflow-y: scroll;
+  /*
+  word-break: break-all;
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+     -moz-hyphens: auto;
+          hyphens: auto;
+  */
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+/*
+  !important needed because Stylish.
+*/
+
+a {
+  color: #1e90ff !important;
+  text-decoration: none !important;
+}
+
+/*
+  Normalise font-weight across browsers and
+  ensure the right weight is chosen, not a
+  faux-bold which looks icky.
+*/
+
+b,
+strong,
+.name,
+.subject,
+.current {
+  font-weight: 700;
+}
+
+/*
+  Remove default margin on blockquotes.
+*/
+
+blockquote {
+  margin: 0;
+}
+
+/*
+  Correct font family set oddly in Chrome,
+  and set tripcodes to a monospace font
+  while we're at it.
+*/
+
+pre,
+.postertrip {
+  font-family: monospace;
+  font-size: 1em;
+}
+
+/*
+  [code] code tags for /g/ and others [/code].
+  Also improve readability of pre-formatted
+  text in all browsers.
+*/
+
+pre {
+  /*
+  color: #fafafa;
+  background-color: #3d3d3d;
+  padding: .5em;
+  border: 1px solid #2d2d2d;
+  margin: 0;
+  */
+  display: inline-block;
+  white-space: pre-wrap;
+}
+
+/*
+  Since we block the default 4chan styles,
+  we then need to style the prettyprint! So,
+  this one is pretty cool. Feel free to pick
+  another style from the site and replace this
+  section to suit your preference.
+  
+  I chose Tomorrow Night Eighties;
+  http://jmblog.github.io/color-themes-for-google-code-prettify/
+*/
+
+.prettyprint .str { color: #9c9; }
+.prettyprint .com { color: #999; }
+.prettyprint .atv { color: #6cc; }
+.prettyprint .typ,
+.prettyprint .fun { color: #69c; }
+.prettyprint .kwd { color: #c9c; }
+.prettyprint .lit,
+.prettyprint .atn,
+.prettyprint .dec { color: #f99157; }
+.prettyprint .pun,
+.prettyprint .opn,
+.prettyprint .clo { color: #ccc; }
+.prettyprint .tag,
+.prettyprint .var { color: #f2777a; }
+
+/*
+  Remove the gap between images and the
+  bottom of their containers: h5bp.com/i/440
+*/
+
+img {
+  vertical-align: middle;
+}
+
+/*
+  Correct font-family, font-size and colour
+  inheritance, and remove different margins.
+  !important for all 3 because Stylish.
+*/
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit !important;
+  font-size: 100% !important;
+  color: inherit !important;
+  margin: 0;
+}
+
+/*
+  Firefox messes with the line-height apparently.
+  !important; because Stylish.
+*/
+
+button,
+input {
+  line-height: normal !important;
+}
+
+/*
+  Improve usability and consistency for buttons.
+*/
+
+button,
+html input[type=button] {
+  cursor: pointer;
+}
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/*
+  Remove inner padding and border in Firefox.
+*/
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/*
+  Improve readability and alignment, along with
+  vertical resizing only.
+*/
+
+textarea {
+  vertical-align: top;
+  resize: vertical;
+}
+
+/*
+  Here, we clearfix posts to prevent collapsing.
+  http://nicolasgallagher.com/micro-clearfix-hack/
+*/
+
+/*
+::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+*/
 
 }
