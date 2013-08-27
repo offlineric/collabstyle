@@ -5,7 +5,15 @@
   top: 4rem;
   right: 4rem;
   padding: 1em;
-  cursor: pointer;
+}
+
+/*
+  In order, we hide:
+    - mobile-only elements
+*/
+
+.mobile {
+  display: none;
 }
 
 /*
@@ -119,6 +127,10 @@ pre {
   */
   display: inline-block;
   white-space: pre-wrap;
+  /*
+  word-break: break-all;
+  word-wrap: break-word;
+  */
 }
 
 /*
@@ -159,7 +171,7 @@ img {
 /*
   Correct font-family, font-size and colour
   inheritance, and remove different margins.
-  !important for all 3 because Stylish.
+  !important for 4 of themm, because Stylish.
 */
 
 button,
@@ -169,25 +181,29 @@ textarea {
   font-family: inherit !important;
   font-size: 100% !important;
   color: inherit !important;
+  line-height: inherit !important;
   margin: 0;
 }
 
 /*
   Firefox messes with the line-height apparently.
-  !important; because Stylish.
+  !important because Stylish.
+  (this fix included in the CSS above)
 */
-
+/*
 button,
 input {
   line-height: normal !important;
 }
+*/
 
 /*
   Improve usability and consistency for buttons.
 */
 
 button,
-html input[type=button] {
+html input[type=button],
+html input[type=submit] {
   cursor: pointer;
 }
 
