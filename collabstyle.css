@@ -1,5 +1,7 @@
-@-moz-document domain("boards.4chan.org") {
-
+@-moz-document domain("boards.4chan.org") { 
+    * {
+	font-family:droid sans !important;
+}
 #removestyle {
   position: fixed;
   top: 4rem;
@@ -8,8 +10,8 @@
 }
 
 /*
-  In order, we hide:
-    - mobile-only elements
+In order, we hide:
+- mobile-only elements
 */
 
 .mobile {
@@ -17,7 +19,7 @@
 }
 
 /*
-  http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+http://www.paulirish.com/2012/box-sizing-border-box-ftw/
 */
 
 *,
@@ -28,7 +30,7 @@
 }
 
 /*
-  https://github.com/h5bp/html5-boilerplate/commit/1d320b59a390041f25cf87d790f6472a25a512ef
+https://github.com/h5bp/html5-boilerplate/commit/1d320b59a390041f25cf87d790f6472a25a512ef
 */
 
 ::-moz-selection {
@@ -40,8 +42,8 @@
 }
 
 /*
-  Now, normally you redefine the :focus style. I'm not.
-  !important needed because Stylish.
+Now, normally you redefine the :focus style. I'm not.
+!important needed because Stylish.
 */
 
 :focus {
@@ -49,17 +51,17 @@
 }
 
 html {
-  font: 1em/1.4 sans-serif;
+  font: 1em/1.4 droid sans;
   color: #3d3d3d;
   background-color: #fafafa;
   overflow-y: scroll;
   /*
-  word-break: break-all;
-  word-wrap: break-word;
-  -webkit-hyphens: auto;
-     -moz-hyphens: auto;
-          hyphens: auto;
-  */
+word-break: break-all;
+word-wrap: break-word;
+-webkit-hyphens: auto;
+-moz-hyphens: auto;
+hyphens: auto;
+*/
   min-height: 100%;
 }
 
@@ -69,18 +71,22 @@ body {
 }
 
 /*
-  !important needed because Stylish.
+!important needed because Stylish.
 */
 
 a {
-  color: #1e90ff !important;
+  color: #a1b3ff !important;
+transition: color .6s ease !important;
   text-decoration: none !important;
 }
+a:hover {
+          color: #1e90ff !important;
+        }
 
 /*
-  Normalise font-weight across browsers and
-  ensure the right weight is chosen, not a
-  faux-bold which looks icky.
+Normalise font-weight across browsers and
+ensure the right weight is chosen, not a
+faux-bold which looks icky.
 */
 
 b,
@@ -92,7 +98,7 @@ strong,
 }
 
 /*
-  Remove default margin on blockquotes.
+Remove default margin on blockquotes.
 */
 
 blockquote {
@@ -100,9 +106,9 @@ blockquote {
 }
 
 /*
-  Correct font family set oddly in Chrome,
-  and set tripcodes to a monospace font
-  while we're at it.
+Correct font family set oddly in Chrome,
+and set tripcodes to a monospace font
+while we're at it.
 */
 
 pre,
@@ -112,36 +118,35 @@ pre,
 }
 
 /*
-  [code] code tags for /g/ and others [/code].
-  Also improve readability of pre-formatted
-  text in all browsers.
+[code] code tags for /g/ and others [/code].
+Also improve readability of pre-formatted
+text in all browsers.
 */
 
 pre {
   /*
-  color: #fafafa;
-  background-color: #3d3d3d;
-  padding: .5em;
-  border: 1px solid #2d2d2d;
-  margin: 0;
-  */
+color: #fafafa;
+background-color: #3d3d3d;
+padding: .5em;
+border: 1px solid #2d2d2d;
+margin: 0;
+*/
   display: inline-block;
   white-space: pre-wrap;
   /*
-  word-break: break-all;
-  word-wrap: break-word;
-  */
+word-break: break-all;
+word-wrap: break-word;
+*/
 }
 
 /*
-  Since we block the default 4chan styles,
-  we then need to style the prettyprint! So,
-  this one is pretty cool. Feel free to pick
-  another style from the site and replace this
-  section to suit your preference.
-  
-  I chose Tomorrow Night Eighties;
-  http://jmblog.github.io/color-themes-for-google-code-prettify/
+Since we block the default 4chan styles,
+we then need to style the prettyprint! So,
+this one is pretty cool. Feel free to pick
+another style from the site and replace this
+section to suit your preference.
+I chose Tomorrow Night Eighties;
+http://jmblog.github.io/color-themes-for-google-code-prettify/
 */
 
 .prettyprint .str { color: #9c9; }
@@ -160,8 +165,8 @@ pre {
 .prettyprint .var { color: #f2777a; }
 
 /*
-  Remove the gap between images and the
-  bottom of their containers: h5bp.com/i/440
+Remove the gap between images and the
+bottom of their containers: h5bp.com/i/440
 */
 
 img {
@@ -169,9 +174,9 @@ img {
 }
 
 /*
-  Correct font-family, font-size and colour
-  inheritance, and remove different margins.
-  !important for 4 of themm, because Stylish.
+Correct font-family, font-size and colour
+inheritance, and remove different margins.
+!important for 4 of themm, because Stylish.
 */
 
 button,
@@ -186,19 +191,19 @@ textarea {
 }
 
 /*
-  Firefox messes with the line-height apparently.
-  !important because Stylish.
-  (this fix included in the CSS above)
+Firefox messes with the line-height apparently.
+!important because Stylish.
+(this fix included in the CSS above)
 */
 /*
 button,
 input {
-  line-height: normal !important;
+line-height: normal !important;
 }
 */
 
 /*
-  Improve usability and consistency for buttons.
+Improve usability and consistency for buttons.
 */
 
 button,
@@ -213,7 +218,7 @@ html input[disabled] {
 }
 
 /*
-  Remove inner padding and border in Firefox.
+Remove inner padding and border in Firefox.
 */
 
 button::-moz-focus-inner,
@@ -223,8 +228,8 @@ input::-moz-focus-inner {
 }
 
 /*
-  Improve readability and alignment, along with
-  vertical resizing only.
+Improve readability and alignment, along with
+vertical resizing only.
 */
 
 textarea {
@@ -233,16 +238,249 @@ textarea {
 }
 
 /*
-  Here, we clearfix posts to prevent collapsing.
-  http://nicolasgallagher.com/micro-clearfix-hack/
+Here, we clearfix posts to prevent collapsing.
+http://nicolasgallagher.com/micro-clearfix-hack/
 */
 
 /*
 ::after {
-  content: '';
-  display: table;
-  clear: both;
+content: '';
+display: table;
+clear: both;
 }
 */
 
+a.quotelink.inlined {  outline: 0 !important;opacity: 1 !important;}
+
+.ad-plea-middle, .ad-plea-top, .ad-plea-bottom, a.hide-reply-button, div.sideArrows, div.boardBanner > img, .qr-link, div#absbot, div.stylechanger, div.deleteform, div.navLinks, a.hide-thread-button, div.reply input, div.navLinksBot, input[type="checkbox"]#imageExpand, .hide_reply_button.stub a::before, .postInfo input[type="checkbox"], #toggleMsgBtn, #styleSwitcher, #info, #pass > span, input[type="Submit"], #recaptcha_reload_btn, #recaptcha_switch_audio, #recaptcha_whatsthis, hr, .mobile {
+	display:none !important;
 }
+
+.lol {opacity: 0 !important; transition: opacity .6s ease !important;}
+.come-in {transform: translateY(400px); opacity: 0; 
+	animation:qp-in .6s ease forwards;
+}
+.inline .come-in {transform: scale(0.05); opacity: 0;
+        animation:qp-in .6s ease forwards;}
+.inline {border: none !important;}
+#qp {   transform: translateY(-150vh);
+	opacity:.05;
+	animation:qp-in .6s ease forwards;
+ width: 80%;
+
+}
+#qp .postContainer {width: 100%;
+border-radius: 4px; box-shadow: -3px 3px 3px rgba(0,0,0,.05);}
+@keyframes qp-in {to { transform: translateY(0px); opacity: 1;}}
+
+#qp.lol {transform: translateY(-150vh) !important; transition: all .9s ease !important;}
+.qphl {outline: none !important; color: red;}
+#fourchanx-settings {
+	background:#fff !important;
+	border-radius:5px !important;
+	border:1px solid #aaa !important;
+	box-shadow:0px 2px 8px rgba(0,0,0,.8) !important;
+	transform: translateX(100%); opacity: 0;
+	animation:sets-in .9s ease forwards; 
+transition: transform .9s ease !important;
+
+}
+
+@keyframes sets-in {
+from {transform: translateX(100%) translateY(-50%); opacity: 0}
+  to {transform: translateX(-50%) translateY(-50%); opacity: 1;}}
+
+#fourchanx-settings.lol {transition: all .9s ease !important;
+transform: translateX(100%) translateY(-50%) !important;}
+
+
+
+.dialog.has-captcha {
+	background:transparent!important;
+	box-shadow:none!important;
+}
+
+#qr {
+	position:absolute !important;
+	float:right !important;
+	top:16px !important;
+	right:0% !important;
+	width:0px !important;
+	z-index:1;
+}
+
+.field[data-name="name"] {
+	border-top-left-radius:4px !important;
+}
+
+.field[data-name="sub"] {
+	border-top-right-radius:4px !important;
+}
+
+#qr-filename-container.field {
+	border-bottom-left-radius:4px !important;
+}
+
+
+
+
+
+#qr input {
+	margin-right:-1px !important;
+	margin-bottom:-1px!important;
+}
+
+ .move {
+	position:fixed !important;
+	right:0px !important;
+	bottom:0px !important;
+	margin-right:0px !important;
+	padding-top:70px!important;
+	padding-right:70px !important;
+	padding-bottom:0px !important;
+	background-color:transparent !important;
+	color:transparent !important;
+	font-size:0px !important;
+max-height: 0px !important;
+max-width: 0px !important;
+	cursor:wait !important;
+	border:solid red 0px;
+background: transparent !important;
+}
+#menu.lol {opacity: 0;}
+#qr form {
+	position:fixed !important;
+	float:right !important;
+	right:2px !important;
+	bottom:-10px;
+	width:400px !important;
+	margin-bottom:14px!important;
+	padding-top:0px !important;
+	padding-right:0px !important;
+	padding-bottom:0px !important;
+	padding-left:0px !important;
+	/*BOOKMARK FOR QR HIDING*/
+	transform:rotate(0deg) translateY(110%) translateX(110%);
+	opacity:.2;
+	transform-origin:bottom right;
+	z-index:1 !important;
+	transition:all 0.7s ease .2s !important;
+	background:rgba(0,0,0,.2) !important;
+	background-image:-moz-linear-gradient(#f6f6f6, #f7f7f7)!important;
+background: #aaaaff!important;
+background: #8A9CA7 !important;
+background: transparent !important;
+	border-top-left-radius:4px !important;
+	border-top-right-radius:4px !important;
+	border-radius:4px !important;
+	border:1px solid rgba(0,0,0,.3)!important;
+
+	box-shadow: -3px -3px 3px rgba(0,0,0,.05)!important;
+    box-shadow: -2px -2px 3px -1px rgba(0,0,0,.1) !important;
+    border: none !important;
+	pointer-events:none;
+	border-color: transparent !important;
+}
+
+#qr form:hover, #qr.has-focus > form, #qr:hover > form {
+	right:2px !important;
+	bottom:-14px;
+	transform:rotate(0deg) translateY(0%) translateX(0%);
+	opacity:1;
+	pointer-events:auto;
+}
+
+#qr-filerm {
+	padding-top:2px !important;
+	float:left !important;
+	height:20px !important;
+	margin-bottom:-2px !important;
+	color:#aaa !important;
+	background:#fff !important;
+}
+
+#dump-button {
+	float:left !important;
+	height:20px !important;
+	margin-bottom:-2px !important;
+	color:#aaa !important;
+	background:#fff !important;
+}
+
+#file-n-submit {
+	margin-top:-1px !important;
+}
+
+#qr input[type="submit"] {
+    display: table !important;
+    position: absolute !important; float: right !important;
+    right: 1px !important; bottom: 2px !important;
+    width: 102px !important; height: 22px !important;
+    margin-top: -29px !important; margin-left: 0px !important;
+    padding-bottom: 2px !important;
+    color: #ccc !important;
+    border-left: 0px !important;
+    font-size: 9pt !important;
+    text-transform: lowercase !important;
+    -moz-appearance: none !important;
+    background: #fff !important;
+    border: solid #ccc 1px !important;
+    border-left: solid #ccc 0px!important;
+    border-bottom-right-radius: 4px !important;
+    border-color: transparent !important;
+}
+#qr [type="submit"] {
+    background: transparent!important 
+}
+#qr form >*, #qr * {border-color: transparent !important;}
+
+.persona {
+	min-width:402px !important;
+	max-width:402px !important;
+}
+
+#header-bar {
+background: #fff !important;
+box-shadow: 0px 2px 4px rgba(0,0,0,.10)!important;
+border-bottom: 2px solid #ddd !important;
+padding: .5em !important;
+}
+.quotelink.you {font-size: 0px;}
+.quotelink.you:after {font-size: 8pt; font-weight: bold; content: "@eric"; color: #cc6161;}
+.postContainer {margin: 1em; padding: 1em; margin-bottom: 0; margin-top: -1px;
+background: #fefefe; border-radius: 0px; border: 1px solid #eee;}
+a.summary {float: right; margin-right: 1em; margin-top: -2em;}
+.opContainer {margin-bottom: 3em;}
+}
+.postMessage {padding: .5em;}
+.boardTitle {font-size:10em; font-weight: 600; padding: 1em; text-align: center;
+margin-left: auto; margin-right: auto; background: #fff; border-bottom:solid 4px black; padding-top: 3vh; padding-bottom: 3vh;
+min-height: 5vh; }
+#qp {background: transparent !important; border: none !important; box-shadow: none !important;}
+.op .postInfo {position: fixed; top: 1em;}
+.op {padding-top: 1.5em;}
+.pagelist {text-align: center;}
+.brackets-wrap::before, .brackets-wrap::after { display: none; }
+
+#notifications >* {transform: translateY(-150vh); opacity: 0;	animation:notes-in .9s ease forwards; 	
+background: #a1b2ff !important; margin-top: 5px !important;	 
+}
+.notification.lol {transform: translateY(150vh)!important; opacity: 0!important; transition: all .9s ease!important; }
+
+
+@keyframes notes-in {
+  to {transform: translateY(0%); opacity: 1; }}
+.entry {animation:entry-in .9s ease forwards; }
+@keyframes entry-in {from{transform:translateY(0%); opacity: 0;} to{transform: translateY(0%); opacity: 1;}}
+
+#notifications .warning {background: #ffa1b2 !important;}
+
+.postContainer.quotesYou {
+margin-top: -2px;
+border-left: 4px solid #a1c1ff !important;
+}
+.postContainer.yourPost{
+border-left: 4px solid #ffc1a1 !important;}
+.post.reply{border: none !important;}
+.file {padding-left: .5em;}
+#qp .opContainer .file {padding-top: 1.5em;}
