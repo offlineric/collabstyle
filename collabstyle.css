@@ -274,7 +274,7 @@ border-radius: 4px; box-shadow: -3px 3px 3px rgba(0,0,0,.05);}
 @keyframes qp-in {to { transform: translateY(0px); opacity: 1;}}
 
 #qp.lol {transform: translateY(-150vh) !important; transition: all .9s ease !important;}
-.qphl {outline: none !important; color: red;}
+.qphl {outline: none !important; color: #cc6161;}
 #fourchanx-settings {
 	background:#fff !important;
 	border-radius:5px !important;
@@ -442,9 +442,14 @@ background: transparent !important;
 #header-bar {
 background: #fff !important;
 box-shadow: 0px 2px 4px rgba(0,0,0,.10)!important;
-border-bottom: 2px solid #ddd !important;
+border-bottom: 1px solid #ddd !important;
 padding: .5em !important;
+margin: .5em !important;
+border-top: 1px solid #f4f4f4!important;
+border-radius: 2px !important;
 }
+#header-bar::before {content: " ";
+position: fixed; top: 0; left: 0; right: 0; height: .5em; background: #fafafa;}
 .quotelink.you {font-size: 0px;}
 .quotelink.you:after {font-size: 8pt; font-weight: bold; content: "@eric"; color: #cc6161;}
 .postContainer {margin: 1em; padding: 1em; margin-bottom: 0; margin-top: -1px;
@@ -453,9 +458,11 @@ a.summary {float: right; margin-right: 1em; margin-top: -2em;}
 .opContainer {margin-bottom: 3em;}
 }
 .postMessage {padding: .5em;}
-.boardTitle {font-size:10em; font-weight: 600; padding: 1em; text-align: center;
-margin-left: auto; margin-right: auto; background: #fff; border-bottom:solid 4px black; padding-top: 3vh; padding-bottom: 3vh;
+.boardTitle {text-shadow: -1px -1px 1px #fff !important;
+font-size:8em; font-weight: 600; padding: 1em; text-align: center;
+margin-left: 1em; margin-right: 1em; padding-top: 3vh; padding-bottom: 3vh;
 min-height: 5vh; }
+.boardSubtitle {text-align: center;}
 #qp {background: transparent !important; border: none !important; box-shadow: none !important;}
 .op .postInfo {position: fixed; top: 1em;}
 .op {padding-top: 1.5em;}
@@ -480,7 +487,12 @@ margin-top: -2px;
 border-left: 4px solid #a1c1ff !important;
 }
 .postContainer.yourPost{
-border-left: 4px solid #ffc1a1 !important;}
+border-left: 4px solid #cc6161 !important;} 
 .post.reply{border: none !important;}
 .file {padding-left: .5em;}
 #qp .opContainer .file {padding-top: 1.5em;}
+a.menu-button {float: right; opacity: 0; transition:all .9s ease !important;
+margin-top: -1em; margin-right: -.8em;}
+a.menu-button:hover {opacity: 1;}
+body {padding-bottom: 1.5em;}
+#menu, .submenu {background: #fff !important;}
