@@ -270,7 +270,7 @@ a.quotelink.inlined {  outline: 0 !important;opacity: 1 !important;}
 
 }
 #qp .postContainer {width: 100%;
-border-radius: 4px; box-shadow: -3px 3px 3px rgba(0,0,0,.05);}
+border-radius: 4px; box-shadow: 0px 0px 6px 1px rgba(0,0,0,.1);}
 @keyframes qp-in {to { transform: translateY(0px); opacity: 1;}}
 
 #qp.lol {transform: translateY(-150vh) !important; transition: all .9s ease !important;}
@@ -440,33 +440,62 @@ background: transparent !important;
 }
 
 #header-bar {
+
+
 background: #fff !important;
+border: 1px solid #ddd !important;
 box-shadow: 0px 2px 4px rgba(0,0,0,.10)!important;
 border-bottom: 1px solid #ddd !important;
 padding: .5em !important;
 margin: .5em !important;
-border-top: 1px solid #f4f4f4!important;
-border-radius: 2px !important;
+border-top: 1px solid #ddd!important;
+border-radius: 4px !important;
+border-bottom-right-radius: 0px !important;
+border-bottom-left-radius: 0px !important;
 }
-#header-bar::before {content: " ";
+body::before {content: " "; z-index: 500;
 position: fixed; top: 0; left: 0; right: 0; height: .5em; background: #fafafa;}
 .quotelink.you {font-size: 0px;}
 .quotelink.you:after {font-size: 8pt; font-weight: bold; content: "@eric"; color: #cc6161;}
+#header-bar:after {content: " "; position: fixed; right: 7px; top: 37px;
+width: 0px;
+height: 0px;
+border-style: solid;
+border-width: 5px 5px 0 0;
+border-color: #aaa transparent transparent transparent;}
+#header-bar:before {content: " "; position: fixed; left: 7px; top: 37px;
+width: 0px;
+height: 0px;
+border-style: solid;
+border-width: 0 5px 5px 0;
+border-color: transparent #aaa transparent transparent;}
+
+
 .postContainer {margin: 1em; padding: 1em; margin-bottom: 0; margin-top: -1px;
 background: #fefefe; border-radius: 0px; border: 1px solid #eee;}
-a.summary {float: right; margin-right: 1em; margin-top: -2em;}
+a.summary {float: right; margin-right: 1.5em; margin-top: -2em; }
+
 .opContainer {margin-bottom: 3em;}
 }
 .postMessage {padding: .5em;}
-.boardTitle {text-shadow: -1px -1px 1px #fff !important;
+.boardTitle {text-shadow: -1px -1px 1px #666!important; display: none;
 font-size:8em; font-weight: 600; padding: 1em; text-align: center;
-margin-left: 1em; margin-right: 1em; padding-top: 3vh; padding-bottom: 3vh;
-min-height: 5vh; }
-.boardSubtitle {text-align: center;}
+margin-left: .1em; margin-right: .1em; padding-top: .3em; padding-bottom: .3em;
+ background: #a1b3ff; margin-top: .3em;
+ border-radius: 5px; color: #fafafa; border: 2px solid #a0b2fe;
+
+ }
+.boardSubtitle {font-weight: 600;
+text-align: center; color: #fafafa; margin-top: -2em;}
+.boardSubtitle a {color: white !important;}
+.boardSubtitle a:hover{color: #ddddff !important;}
 #qp {background: transparent !important; border: none !important; box-shadow: none !important;}
 .op .postInfo {position: fixed; top: 1em;}
 .op {padding-top: 1.5em;}
-.pagelist {text-align: center;}
+.pagelist {text-align: center; padding: 1em; font-size: 2em;}
+.prev {float: left;}
+.pages {float: right;}
+.cataloglink {margin-right: 2em;}
 .brackets-wrap::before, .brackets-wrap::after { display: none; }
 
 #notifications >* {transform: translateY(-150vh); opacity: 0;	animation:notes-in .9s ease forwards; 	
@@ -496,3 +525,5 @@ margin-top: -1em; margin-right: -.8em;}
 a.menu-button:hover {opacity: 1;}
 body {padding-bottom: 1.5em;}
 #menu, .submenu {background: #fff !important;}
+
+.thread {margin-top: 2em;}
