@@ -266,7 +266,7 @@ a.quotelink.inlined {  outline: 0 !important;opacity: 1 !important;}
 #qp {   transform: translateY(-150vh);
 	opacity:.05;
 	animation:qp-in .6s ease forwards;
- width: 80%;
+ width: 70%;
 
 }
 #qp .postContainer {width: 100%;
@@ -477,7 +477,7 @@ a.summary {float: right; margin-right: 1.5em; margin-top: -2em; }
 
 .opContainer {margin-bottom: 3em;}
 }
-.postMessage {padding: .5em;}
+.postMessage {padding: .5em;  }
 .boardTitle {text-shadow: -1px -1px 1px #666!important; display: none;
 font-size:8em; font-weight: 600; padding: 1em; text-align: center;
 margin-left: .1em; margin-right: .1em; padding-top: .3em; padding-bottom: .3em;
@@ -521,9 +521,27 @@ border-left: 4px solid #cc6161 !important;}
 .file {padding-left: .5em;}
 #qp .opContainer .file {padding-top: 1.5em;}
 a.menu-button {float: right; opacity: 0; transition:all .9s ease !important;
-margin-top: -1em; margin-right: -.8em;}
+margin-top: -.8em; margin-right: -.8em;}
 a.menu-button:hover {opacity: 1;}
 body {padding-bottom: 1.5em;}
 #menu, .submenu {background: #fff !important;}
 
 .thread {margin-top: 2em;}
+
+.quote {color: #66aa66;}
+
+a.menu-button, .replylink, .current, .shortcut, #update-status.new {background-color: #a1b2ff !important;
+color: white !important; border-radius: 3px !important; padding: .2em !important;
+font-weight: 600 !important;}
+.shortcut a {color: white !important;}
+.postNum span {font-size: 0px;}
+.postNum span .replylink {font-size: 10px !important;}
+
+#board-list {position: fixed !important; top: 1.2em !important; left:1em !important;}
+.backlink {font-size: 0;}
+.backlink:after {font-size: 12px; color: white; background: #a1b3ff;padding-top: .1em; padding-left: .2em; padding-right: .2em; border-radius: 3px;
+content: '\e800'; }
+
+.menu-button {color: transparent;}
+.menu-button:after {content: '\e801'; font-family: lol; color: white; margin-left: -1em;}
+
