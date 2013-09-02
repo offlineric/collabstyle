@@ -97,9 +97,9 @@ strong,
   font-weight: 700;
 transition: background-color .6s ease !important;
 }
- .current:hover {color: white !important; background-color: #1e90ff !important;}
+.replylink:hover, .current:hover {color: white !important; background-color: #1e90ff !important;}
  #shortcuts *:hover {background-color: #1e90ff !important;}
- #shortcuts * {transition: background-color .6s ease !important;}
+.replylink, #shortcuts * {transition: background-color .6s ease !important;}
 /*
 Remove default margin on blockquotes.
 */
@@ -549,6 +549,8 @@ font-weight: 600 !important;}
 .postNum span {font-size: 0px;}
 .postNum span .replylink {font-size: 10px !important;}
 
+
+
 #board-list {position: fixed !important; top: 1.2em !important; left:1em !important;}
 .backlink {font-size: 0;}
 .backlink:after {font-size: 12px; color: white; background: #a1b3ff;padding-top: .1em; padding-left: .2em; padding-right: .2em; border-radius: 3px; margin-left: 1em;
@@ -561,7 +563,7 @@ content: '\e800'; }
 .dateTime::before, .dateTime::after {padding-left: 1em; padding-right: 1em; color: #999; content: "⚋";}
 .backlink:first-child::before {content: "⚋"; font-size: 10px; padding-left: .5em; color: #999;}
 .postNum {padding: 0; margin: 0;}
-.fileThumb img {float: left; margin-right: 1em;}
+.replyContainer .fileThumb img {float: left; margin-right: 1em;}
 .postContainer {overflow: auto;}
 
 
