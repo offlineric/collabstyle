@@ -53,7 +53,7 @@ Now, normally you redefine the :focus style. I'm not.
 html {
   font: 1em/1.4 droid sans;
   color: #3d3d3d;
-  background-color: #fafafa;
+  background-color: #f4f4f4;
   overflow-y: scroll;
   /*
 word-break: break-all;
@@ -95,8 +95,11 @@ strong,
 .subject,
 .current {
   font-weight: 700;
+transition: background-color .6s ease !important;
 }
-
+ .current:hover {color: white !important; background-color: #1e90ff !important;}
+ #shortcuts *:hover {background-color: #1e90ff !important;}
+ #shortcuts * {transition: background-color .6s ease !important;}
 /*
 Remove default margin on blockquotes.
 */
@@ -257,7 +260,7 @@ a.quotelink.inlined {  outline: 0 !important;opacity: 1 !important;}
 }
 
 .lol {opacity: 0 !important; transition: opacity .6s ease !important;}
-.come-in {transform: translateY(400px); opacity: 0; 
+.come-in {transform: translateY(400px); opacity: 1; 
 	animation:qp-in .6s ease forwards;
 }
 .inline .come-in {transform: scale(0.05); opacity: 0;
@@ -266,7 +269,9 @@ a.quotelink.inlined {  outline: 0 !important;opacity: 1 !important;}
 #qp {   transform: translateY(-150vh);
 	opacity:.05;
 	animation:qp-in .6s ease forwards;
- width: 70%;
+ width: 70%; z-index: 5000 !important;
+ left: 5em !important; right: 5em !important;
+pointer-events: none;
 
 }
 #qp .postContainer {width: 100%;
@@ -449,12 +454,18 @@ border-bottom: 1px solid #ddd !important;
 padding: .5em !important;
 margin: .5em !important;
 border-top: 1px solid #ddd!important;
+border-bottom: 1px solid #aaa !important;
 border-radius: 4px !important;
 border-bottom-right-radius: 0px !important;
 border-bottom-left-radius: 0px !important;
 }
 body::before {content: " "; z-index: 500;
-position: fixed; top: 0; left: 0; right: 0; height: .5em; background: #fafafa;}
+position: fixed; top: 0; left: 0; right: 0; height: .5em; background: #f4f4f4;}
+body::after {content: " "; z-index: -10;
+position: fixed; top: 36px; left: 12px; right: 12px; height: 6px; background: #ababab;}
+
+
+
 .quotelink.you {font-size: 0px;}
 .quotelink.you:after {font-size: 8pt; font-weight: bold; content: "@eric"; color: #cc6161;}
 #header-bar:after {content: " "; position: fixed; right: 7px; top: 37px;
@@ -475,7 +486,7 @@ border-color: transparent #aaa transparent transparent;}
 background: #fefefe; border-radius: 0px; border: 1px solid #eee;}
 a.summary {float: right; margin-right: 1.5em; margin-top: -2em; }
 
-.opContainer {margin-bottom: 3em;}
+.opContainer {margin-bottom: 3em; border-top-right-radius: 5px; border-top-left-radius: 5px;}
 }
 .postMessage {padding: .5em;  }
 .boardTitle {text-shadow: -1px -1px 1px #666!important; display: none;
@@ -524,7 +535,8 @@ a.menu-button {float: right; opacity: 0; transition:all .9s ease !important;
 margin-top: -.8em; margin-right: -.8em;}
 a.menu-button:hover {opacity: 1;}
 body {padding-bottom: 1.5em;}
-#menu, .submenu {background: #fff !important;}
+#menu, .submenu {background: #fff !important; }
+#menu * {font-size: 10px !important;}
 
 .thread {margin-top: 2em;}
 
@@ -539,9 +551,19 @@ font-weight: 600 !important;}
 
 #board-list {position: fixed !important; top: 1.2em !important; left:1em !important;}
 .backlink {font-size: 0;}
-.backlink:after {font-size: 12px; color: white; background: #a1b3ff;padding-top: .1em; padding-left: .2em; padding-right: .2em; border-radius: 3px;
+.backlink:after {font-size: 12px; color: white; background: #a1b3ff;padding-top: .1em; padding-left: .2em; padding-right: .2em; border-radius: 3px; margin-left: 1em;
 content: '\e800'; }
 
 .menu-button {color: transparent;}
-.menu-button:after {content: '\e801'; font-family: lol; color: white; margin-left: -1em;}
+.menu-button:after {content: '\e801'; font-family: lol; color: white; margin-left: -1.1em;}
+
+.prettyprint {border: 1px solid #ddd; padding: 1em; box-shadow: inset 2px 2px 2px rgba(0,0,0,.1)}
+.dateTime::before, .dateTime::after {padding-left: 1em; padding-right: 1em; color: #999; content: "⚋";}
+.backlink:first-child::before {content: "⚋"; font-size: 10px; padding-left: .5em; color: #999;}
+.postNum {padding: 0; margin: 0;}
+.fileThumb img {float: left; margin-right: 1em;}
+.postContainer {overflow: auto;}
+
+
+
 
