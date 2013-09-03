@@ -572,15 +572,15 @@ content: '\e800'; }
 .replyContainer .fileThumb img {float: left; margin-right: 1em;}
 .postContainer {overflow: auto;}
 
-
 #globalMessage {margin: 1em; text-align: center; 
 padding: 1em; border-radius: 5px; background: white; border: 1px solid #eee;}
-.hide-announcement {font-size: 0px;}
-.hide-announcement:after {position: relative; right: -1.5em; top: .7em; font-size: 10px; color: white; text-align: left; transition: background .6s ease;
+
+
+.hide-announcement:after {position: relative; right: -.5em; top: .7em; font-size: 10px; color: white; text-align: left; transition: background .6s ease;
 font-weight: 600; background: #a1b3ff; padding: .2em; border-radius: 4px; content: "hide";}
 .hide-announcement:hover:after {background: #1e90ff }
 
-
+.hide-announcement:hover, .hide-announcement {color: transparent !important;}
 
 #full-board-list {font-size: 0}
 #full-board-list a {font-size: 10px; margin-right: 2px;}
