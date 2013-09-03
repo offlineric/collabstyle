@@ -494,25 +494,30 @@ a.summary { margin-left: 2em;}
 .boardTitle {text-shadow: 1px 1px 1px #444!important; 
 font-size:8em; font-weight: 600; padding: 1em; text-align: center;
 margin-left: .15em; margin-right: .15em; padding-top: .3em; padding-bottom: .3em;
- background: #fff; margin-top: .5em; margin-bottom: 0;
+ background: #fff; margin-top: .5em; margin-bottom: .1em;
  border-radius: 5px; color: #a1b3ff; border: 1px solid #eee;
  }
 .boardSubtitle {font-weight: 600;
-text-align: center; color: #aaa; margin-top: -2em;}
+text-align: center; color: #aaa; margin-top: -3em; margin-bottom: 2em;}
 .boardSubtitle a {color: #a1b3ff !important;}
 .boardSubtitle a:hover{color: #1e90ff !important;}
 #qp {background: transparent !important; border: none !important; box-shadow: none !important;}
 .op .postInfo {position: fixed; top: 1em;}
 .op {padding-top: 1.5em;}
-.pagelist {text-align: center; padding: 1em; font-size: 2em;}
-.prev {float: left;}
-.pages {float: right;}
-.cataloglink {margin-right: 2em;}
+.pagelist {text-align: center; padding: 1em; font-size: 1em;margin: -1em;
+margin-left: 0; margin-right: 0;}
+.pages a::after, .pages a::before {content: "  ";}
+.pages {color: transparent; font-weight: 600;}
+.prev {display: none;}
+
 .brackets-wrap::before, .brackets-wrap::after { display: none; }
 
 #notifications >* {transform: translateY(-150vh); opacity: 0;	animation:notes-in .9s ease forwards; 	
 background: #a1b2ff !important; margin-top: 5px !important;	 
 }
+
+#notifications a {color: white !important;}
+#notifications a:hover {color: red !important;}
 .notification.lol {transform: translateY(150vh)!important; opacity: 0!important; transition: all .9s ease!important; }
 
 
@@ -561,14 +566,21 @@ content: '\e800'; }
 .menu-button:after {content: '\e801'; font-family: lol; color: white; margin-left: -1.1em;}
 
 .prettyprint {border: 1px solid #ddd; padding: 1em; box-shadow: inset 2px 2px 2px rgba(0,0,0,.1)}
-.dateTime::before, .dateTime::after {padding-left: 1em; padding-right: 1em; color: #999; content: "⚋";}
-.backlink:first-child::before {content: "⚋"; font-size: 10px; padding-left: .5em; color: #999;}
+ .dateTime::before, .dateTime::after {padding-left: 1em; padding-right: 1em; color: #999; content: "⚋";}
+ .backlink:first-child::before {content: "⚋"; font-size: 10px; padding-left: .5em; color: #999;}
 .postNum {padding: 0; margin: 0;}
 .replyContainer .fileThumb img {float: left; margin-right: 1em;}
 .postContainer {overflow: auto;}
 
 
-#globalMessage {margin: 1em; margin-top: 3em;
+#globalMessage {margin: 1em; text-align: center; 
 padding: 1em; border-radius: 5px; background: white; border: 1px solid #eee;}
 .hide-announcement {font-size: 0px;}
-.hide-announcement:after {position: relative; right: -1.2em; top:1.5em; font-size: 15px; color: red; content: "x";}
+.hide-announcement:after {position: relative; right: -1.5em; top: .7em; font-size: 10px; color: white; text-align: left; transition: background .6s ease;
+font-weight: 600; background: #a1b3ff; padding: .2em; border-radius: 4px; content: "hide";}
+.hide-announcement:hover:after {background: #1e90ff }
+
+
+
+#full-board-list {font-size: 0}
+#full-board-list a {font-size: 10px; margin-right: 2px;}
