@@ -484,22 +484,23 @@ border-color: transparent #aaa transparent transparent;}
 
 .postContainer {margin: 1em; padding: 1em; margin-bottom: 0; margin-top: -1px;
 background: #fefefe; border-radius: 0px; border: 1px solid #eee;}
-a.summary {float: right; margin-right: 1.5em; margin-top: -2em; }
+/*a.summary {float: right; margin-right: 1em; margin-top: -4em; background: white;
+overflow: visible;}*/
+a.summary { margin-left: 2em;}
 
-.opContainer {margin-bottom: 3em; border-top-right-radius: 5px; border-top-left-radius: 5px;}
+.opContainer {margin-bottom: 0em; border-top-right-radius: 5px; border-top-left-radius: 5px;}
 }
 .postMessage {padding: .5em;  }
-.boardTitle {text-shadow: -1px -1px 1px #666!important; display: none;
+.boardTitle {text-shadow: 1px 1px 1px #444!important; 
 font-size:8em; font-weight: 600; padding: 1em; text-align: center;
-margin-left: .1em; margin-right: .1em; padding-top: .3em; padding-bottom: .3em;
- background: #a1b3ff; margin-top: .3em;
- border-radius: 5px; color: #fafafa; border: 2px solid #a0b2fe;
-
+margin-left: .15em; margin-right: .15em; padding-top: .3em; padding-bottom: .3em;
+ background: #fff; margin-top: .5em; margin-bottom: 0;
+ border-radius: 5px; color: #a1b3ff; border: 1px solid #eee;
  }
 .boardSubtitle {font-weight: 600;
-text-align: center; color: #fafafa; margin-top: -2em;}
-.boardSubtitle a {color: white !important;}
-.boardSubtitle a:hover{color: #ddddff !important;}
+text-align: center; color: #aaa; margin-top: -2em;}
+.boardSubtitle a {color: #a1b3ff !important;}
+.boardSubtitle a:hover{color: #1e90ff !important;}
 #qp {background: transparent !important; border: none !important; box-shadow: none !important;}
 .op .postInfo {position: fixed; top: 1em;}
 .op {padding-top: 1.5em;}
@@ -534,11 +535,11 @@ border-left: 4px solid #cc6161 !important;}
 a.menu-button {float: right; opacity: 0; transition:all .9s ease !important;
 margin-top: -.8em; margin-right: -.8em;}
 a.menu-button:hover {opacity: 1;}
-body {padding-bottom: 1.5em;}
+
 #menu, .submenu {background: #fff !important; }
 #menu * {font-size: 10px !important;}
 
-.thread {margin-top: 2em;}
+.thread {margin-bottom: 1em;}
 
 .quote {color: #66aa66;}
 
@@ -567,5 +568,7 @@ content: '\e800'; }
 .postContainer {overflow: auto;}
 
 
-
-
+#globalMessage {margin: 1em; margin-top: 3em;
+padding: 1em; border-radius: 5px; background: white; border: 1px solid #eee;}
+.hide-announcement {font-size: 0px;}
+.hide-announcement:after {position: relative; right: -1.2em; top:1.5em; font-size: 15px; color: red; content: "x";}
