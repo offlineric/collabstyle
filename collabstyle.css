@@ -323,6 +323,7 @@ left:0% !important;
 	border-top-right-radius:4px !important;
 }
 
+
 #qr-filename-container.field {
 	border-bottom-left-radius:4px !important;
 }
@@ -341,56 +342,50 @@ left:0% !important;
 	right:0px !important;
 	bottom:0px !important;
 	margin-right:0px !important;
-	padding-top:70px!important;
-	padding-right:70px !important;
+	padding-top:3rem!important;
+	padding-right:100% !important;
 	padding-bottom:0px !important;
 	background-color:transparent !important;
 	color:transparent !important;
 	font-size:0px !important;
 max-height: 0px !important;
 max-width: 0px !important;
-	cursor:wait !important;
+	cursor:progress !important;
 	border:solid red 0px;
 background: transparent !important;
 }
 #menu.lol {opacity: 0;}
 #qr form {
 	position:fixed !important;
-	float:right !important;
-	right:2px !important;
-	bottom:-10px;
-	width:400px !important;
+
+	right:0em !important;
+left: 0em;
+	bottom:0em;
+background: white;
 	margin-bottom:14px!important;
 	padding-top:0px !important;
 	padding-right:0px !important;
 	padding-bottom:0px !important;
-	padding-left:0px !important;
+margin: 0;
+padding: 0em !important;
+padding-top: 0 !important;
+
 	/*BOOKMARK FOR QR HIDING*/
-	transform:rotate(0deg) translateY(110%) translateX(110%);
-	opacity:.2;
+	transform:rotate(0deg) translateY(100vh) translateX(0%);
+	opacity:1;
 	transform-origin:bottom right;
 	z-index:1 !important;
 	transition:all 0.7s ease .2s !important;
-	background:rgba(0,0,0,.2) !important;
-	background-image:-moz-linear-gradient(#f6f6f6, #f7f7f7)!important;
-background: #aaaaff!important;
-background: #8A9CA7 !important;
-background: transparent !important;
-	border-top-left-radius:4px !important;
-	border-top-right-radius:4px !important;
-	border-radius:4px !important;
-	border:1px solid rgba(0,0,0,.3)!important;
+box-shadow: 0px 0px 4px 1px rgba(0,0,0,.1);
+border-radius: 0px;
 
-	box-shadow: -3px -3px 3px rgba(0,0,0,.05)!important;
-    box-shadow: -2px -2px 3px -1px rgba(0,0,0,.1) !important;
-    border: none !important;
-	pointer-events:none;
-	border-color: transparent !important;
+
 }
 
 #qr form:hover, #qr.has-focus > form, #qr:hover > form {
-	right:2px !important;
-	bottom:-14px;
+	right:0em !important;
+	bottom:-1.3em;
+
 	transform:rotate(0deg) translateY(0%) translateX(0%);
 	opacity:1;
 	pointer-events:auto;
@@ -436,14 +431,17 @@ background: transparent !important;
     border-color: transparent !important;
 }
 #qr [type="submit"] {
-    background: transparent!important 
+    background: white!important 
 }
+
+
+#dump-list-container {background: white;}
 #qr form >*, #qr * {border-color: transparent !important;}
 
-.persona {
-	min-width:402px !important;
-	max-width:402px !important;
-}
+
+.field[data-name="com"] {min-height: 3.5rem !important;}
+
+
 
 #header-bar {
 
@@ -500,10 +498,10 @@ border-color: transparent #aaa transparent transparent;}
 background: #fefefe; border-radius: 0px; border: 1px solid #eee;}
 /*a.summary {float: right; margin-right: 1em; margin-top: -4em; background: white;
 overflow: visible;}*/
-a.summary { margin-left: 2em;}
+a.summary { margin-left: 4em;}
 
 .opContainer {margin-bottom: 0em; border-top-right-radius: 5px; border-top-left-radius: 5px;}
-}
+
 .postMessage {padding: .5em;  }
 .boardTitle {text-shadow: -1px -1px 1px #ddd!important; 
 font-size:8em; font-weight: 600; padding: 0em; text-align: center;
@@ -573,7 +571,7 @@ font-weight: 600 !important;}
 .postNum span {font-size: 0px;}
 .postNum span .replylink {font-size: 0px !important;}
 
-.replylink::after {position: fixed; top: .5em; right: .5em; content: "Reply"; color: transparent;
+.replylink::after {position: fixed; top: .9em; right: .9em; content: "Reply"; color: transparent;
 pointer-events: none; transition: background .6s ease;}
 .backlink:hover:after, .come-in .replylink:hover:after {background: #1e90ff ;}
 .come-in .replylink::after {color: white; background: #a1b3ff; border-radius: 3px; padding: .1em; pointer-events: auto; padding-bottom: .1em; font-size: 10px;}
@@ -655,5 +653,14 @@ box-shadow: 0px -4px 3px -2px rgba(0,0,0,.1);}
 
 
 .postContainer {box-shadow: 0px 0px 6px 1px rgba(0,0,0,.1); margin: 1em; margin-left: 4em; margin-right: 4em; border-radius: 5px;  }
+.postContainer:last-child {margin-bottom: 4em;}
 
+
+/* turn it down a bit :)
+html::after {content: " "; pointer-events: none;
+position: fixed; top: 0; left: 0; width: 100%; height: 100vh; 
+background: rgba(0,0,0,.4); z-index: 90000000001;}
+*/
+
+}
 
