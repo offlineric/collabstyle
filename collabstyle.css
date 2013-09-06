@@ -265,7 +265,8 @@ a.quotelink.inlined {  outline: 0 !important;opacity: 1 !important;}
 
 .inline .come-in {transform: scale(0.05); opacity: 0;
         animation:qp-in .6s ease forwards;}
-.inline {border: none !important;}
+.inline {border: none !important; }
+.inline .postContainer {box-shadow: inset 0px 0px 6px 1px rgba(0,0,0,.1);}
 #qp {   transform: translateY(-150vh);
 	opacity:.05;
 	animation:qp-in .6s ease forwards;
@@ -279,7 +280,8 @@ border-radius: 4px; box-shadow: 0px 0px 6px 1px rgba(0,0,0,.1);}
 @keyframes qp-in {to { transform: translateY(0px); opacity: 1;}}
 
 #qp.lol {transform: translateY(-150vh) !important; transition: all .9s ease !important;}
-.qphl {outline: none !important; color: #cc6161;}
+.qphl {outline: none !important;opacity: 0; }
+.post {transition: opacity .3s ease;}
 #fourchanx-settings {
 	background:#fff !important;
 	border-radius:5px !important;
@@ -307,9 +309,8 @@ transform: translateX(100%) translateY(-50%) !important;}
 
 #qr {
 	position:absolute !important;
-	float:right !important;
-	top:16px !important;
-	right:0% !important;
+	top:-16px !important;
+left:0% !important;
 	width:0px !important;
 	z-index:1;
 }
@@ -495,7 +496,7 @@ border-width: 0 5px 5px 0;
 border-color: transparent #aaa transparent transparent;}
 */
 
-.postContainer {margin: 1em; padding: 1em; margin-bottom: 0; margin-top: -1px;
+.postContainer {margin: 0em; padding: 1em; margin-bottom: 0; margin-top: -1px;
 background: #fefefe; border-radius: 0px; border: 1px solid #eee;}
 /*a.summary {float: right; margin-right: 1em; margin-top: -4em; background: white;
 overflow: visible;}*/
@@ -505,8 +506,8 @@ a.summary { margin-left: 2em;}
 }
 .postMessage {padding: .5em;  }
 .boardTitle {text-shadow: -1px -1px 1px #ddd!important; 
-font-size:8em; font-weight: 600; padding: 1em; text-align: center;
-margin-left: .15em; margin-right: .15em; padding-top: .3em; padding-bottom: .3em;
+font-size:8em; font-weight: 600; padding: 0em; text-align: center;
+ padding-top: .3em; padding-bottom: .3em;
  background: #fff; top: .5em; margin-bottom: .1em;
  border-radius: 5px; color: #f4f4f4; border: 1px solid transparent;
 background: transparent !important; }
@@ -549,10 +550,13 @@ border-left: 4px solid #a1c1ff !important;
 border-left: 4px solid #cc6161 !important;} 
 .post.reply{border: none !important;}
 .file {padding-left: .5em;}
+.fileText a {padding-right: 1em;}
+
+
 #qp .opContainer .file {padding-top: 1.5em;}
 a.menu-button {float: right; opacity: 0; transition:all .9s ease !important;
 margin-top: -.8em; margin-right: -.8em;}
-a.menu-button:hover {opacity: 1;}
+a.menu-button:hover, a.menu-button.active {opacity: 1;}
 
 #menu, .submenu {background: #fff !important; }
 #menu * {font-size: 10px !important;}
@@ -567,13 +571,19 @@ font-weight: 600 !important;}
 #update-status.new {background-color: transparent !important;}
 .shortcut a {color: white !important;}
 .postNum span {font-size: 0px;}
-.postNum span .replylink {font-size: 10px !important;}
+.postNum span .replylink {font-size: 0px !important;}
+
+.replylink::after {position: fixed; top: .5em; right: .5em; content: "Reply"; color: transparent;
+pointer-events: none; transition: background .6s ease;}
+.backlink:hover:after, .come-in .replylink:hover:after {background: #1e90ff ;}
+.come-in .replylink::after {color: white; background: #a1b3ff; border-radius: 3px; padding: .1em; pointer-events: auto; padding-bottom: .1em; font-size: 10px;}
+
 
 
 
 #board-list {position: relative !important; top: 1px !important;}
 .backlink {font-size: 0;}
-.backlink:after {font-size: 12px; color: white; background: #a1b3ff;padding-top: .1em; padding-left: .2em; padding-right: .2em; border-radius: 3px; margin-left: 1em;
+.backlink:after {font-size: 12px; color: white; background: #a1b3ff;padding-top: .1em; padding-left: .2em; padding-right: .2em; border-radius: 3px; margin-left: 1em;transition: background .6s ease;
 content: '\e800'; }
 
 .menu-button {color: transparent;}
@@ -613,7 +623,7 @@ a.hide-announcement:hover, a.hide-announcement {color: transparent !important;}
 
 
 .replyContainer {border-top-color: white !important; border-bottom-color: white;}
-.postContainer:last-child {border-bottom-color: #fff !important; box-shadow: 0px 4px 3px -1px rgba(0,0,0,0);}
+
 .opContainer {border-bottom-color: white; background: white;margin-top: 2em; border-radius: 0px;
 box-shadow: 0px -4px 3px -2px rgba(0,0,0,.1);}
 
@@ -632,10 +642,18 @@ box-shadow: 0px -4px 3px -2px rgba(0,0,0,.1);}
 	animation:qp-in .6s ease forwards;
 }
 
-.boardTitle:hover {animation:eggs 10s ease infinite; transition: 2s all 2s ease !important; }
-.boardTitle:active {animation: 2s fags .3s ease infinite;}
+.boardTitle:hover {animation:10s eggs 10s ease infinite;  }
+.boardTitle:active {animation: .3s fags 3s ease infinite;}
 @keyframes eggs {
 25% {transform: translateY(0px);}
 50% {transform: rotateX(180deg);}
 75% {transform: rotateZ(180deg);}
 100% {transform: rotateX(0deg) rotateZ(0deg);}}
+
+
+#qp .backlink {border-bottom: none !important;}
+
+
+.postContainer {box-shadow: 0px 0px 6px 1px rgba(0,0,0,.1); margin: 1em; margin-left: 4em; margin-right: 4em; border-radius: 5px;  }
+
+
