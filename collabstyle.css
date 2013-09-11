@@ -1,6 +1,6 @@
 @-moz-document domain("boards.4chan.org") { 
     * {
-	font-family:droid sans !important;
+	font-family:"droid sans", Arial, sans!important;
 }
 #removestyle {
   position: fixed;
