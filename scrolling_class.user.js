@@ -81,3 +81,4 @@ allMods.each(function(i, el) {
     el.addClass("come-in"); 
   } 
 });
+$('link[rel=stylesheet]').remove();
