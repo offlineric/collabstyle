@@ -14,8 +14,8 @@ In order, we hide:
 - mobile-only elements
 */
 
-.mobile {
-  display: none;
+.mobile, .bottomad, .topad, .middlead {
+  display: none !important;
 }
 
 /*
@@ -342,7 +342,7 @@ left:0% !important;
 	right:0px !important;
 	bottom:0px !important;
 	margin-right:0px !important;
-	padding-top:3rem!important;
+	padding-top:0rem!important;
 	padding-right:100% !important;
 	padding-bottom:0px !important;
 	background-color:transparent !important;
@@ -352,15 +352,16 @@ max-height: 0px !important;
 max-width: 0px !important;
 	cursor:progress !important;
 	border:solid red 0px;
-background: transparent !important;
+background: red !important;
+
 }
 #menu.lol {opacity: 0;}
 #qr form {
 	position:fixed !important;
 
 	right:0em !important;
-left: 0em;
-	bottom:0em;
+
+	bottom:1em;
 background: white;
 	margin-bottom:14px!important;
 	padding-top:0px !important;
@@ -371,13 +372,13 @@ padding: 0em !important;
 padding-top: 0 !important;
 
 	/*BOOKMARK FOR QR HIDING*/
-	transform:rotate(0deg) translateY(100vh) translateX(0%);
+	transform:rotate(0deg) translateY(100%) translateX(0%);
 	opacity:1;
 	transform-origin:bottom right;
 	z-index:1 !important;
 	transition:all 0.7s ease .2s !important;
 box-shadow: 0px 0px 4px 1px rgba(0,0,0,.1);
-border-radius: 0px;
+border-radius: 5px;
 
 
 }
@@ -390,6 +391,7 @@ border-radius: 0px;
 	opacity:1;
 	pointer-events:auto;
 }
+
 
 #qr-filerm {
 	padding-top:2px !important;
@@ -516,7 +518,7 @@ text-align: center; color: #aaa; margin-top: -3em; margin-bottom: 2em;}
 #qp {background: transparent !important; border: none !important; box-shadow: none !important;}
 .op .postInfo {position: fixed; top: 1em;}
 .op {padding-top: 1.5em;}
-.pagelist {text-align: center; padding: 1em; font-size: 1em;margin: -1em;
+.pagelist {text-align: center; padding: 1em; font-size: 1em;margin-top: -3em; margin-bottom: 3em;
 margin-left: 0; margin-right: 0;}
 .pages a::after, .pages a::before {content: "  ";}
 .pages {color: transparent; font-weight: 600;}
@@ -662,5 +664,15 @@ position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
 background: rgba(0,0,0,.4); z-index: 90000000001;}
 */
 
+/*4chanbuzz
+body {counter-reset: section;}
+.postContainer::after {counter-increment: section;  content: counter(section);}
+.postContainer:nth-of-type(3n+0)::after {content: "fizz"}
+.postContainer:nth-of-type(5n+0)::after {content: "buzz"}
+.postContainer:nth-of-type(15n+0)::after {content:"fizzbuzz"}
+.postContainer::after {color: white; font-weight: 600; position: fixed;
+bottom: .5em; right: .5em; background: #a1b3ff; padding: .2em; border-radius: 3px;}
+.postContainer:hover::after {animation: eggs 3s ease infinite;}
+*/
 }
 
