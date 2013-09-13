@@ -19,3 +19,7 @@ enjoy your animated 4chan
 p.s. you can find instructions for the firefox userchrome over here
 
 https://github.com/offlineric/this_repo_will_self_destruct/blob/master/README.md
+
+p.p.s. be sure to check out what Johnny is up to for some more next level shit. none of this happens without him
+
+https://github.com/saxamaphone69/collabstyle
