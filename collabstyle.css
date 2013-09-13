@@ -1,4 +1,6 @@
+
 @-moz-document domain("boards.4chan.org") { 
+
     * {
 	font-family:droid sans !important;
 }
@@ -650,7 +652,8 @@ box-shadow: 0px -4px 3px -2px rgba(0,0,0,.1);}
 75% {transform: rotateZ(180deg);}
 100% {transform: rotateX(0deg) rotateZ(0deg);}}
 
-
+@keyframes leggs {50% { transform: translateX(50%); opacity: 0}
+100%{transform: translateX(-150%); opacity: 0}}
 #qp .backlink {border-bottom: none !important;}
 
 
@@ -674,7 +677,13 @@ body {counter-reset: section;}
 bottom: .5em; right: .5em; background: #a1b3ff; padding: .2em; border-radius: 3px;}
 .postContainer:hover::after {animation: eggs 3s ease infinite;}
 */
-.remove-me {z-index: 90000000001; transition: all 1s ease; transform: translateX(50%); opacity: 0 !important;}
+.remove-me {z-index: 90000000001; transition: all 1s ease; transform: translateX(50%); opacity: 0 !important;
+animation: leggs 2s ease forwards;}
 .remove-me-l {z-index: 90000000001; transition: all 1s ease; transform: translateX(-50%); opacity: 0 !important;}
+.postContainer:active { cursor: move; }
 html { overflow-x: hidden; }
+
 }
+
+
+
