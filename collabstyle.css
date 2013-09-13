@@ -676,5 +676,5 @@ bottom: .5em; right: .5em; background: #a1b3ff; padding: .2em; border-radius: 3p
 */
 .remove-me {z-index: 90000000001; transition: all 1s ease; transform: translateX(50%); opacity: 0 !important;}
 .remove-me-l {z-index: 90000000001; transition: all 1s ease; transform: translateX(-50%); opacity: 0 !important;}
-html { overflow-x: hidden; }
+html,body { overflow-x: hidden; }
 }
