@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name        4chan xtras
+// @name        testicles
 // @namespace   eric
-// @description do awesome things for great fun and edification
+// @description insert parent selectors jscript
 // @include     https://boards.4chan.org/*
 // @include     http://boards.4chan.org/*
 // @grant          GM_getValue
@@ -74,10 +74,15 @@ allMods.each(function(i, el) {
 $('link[rel=stylesheet]').remove();
 
 var win = $(window);
+var oldCount = 0;
+
 
 document.addEventListener("ThreadUpdate", function(e){
+    newcount = e.detail.postCount - oldCount;
     $modules = $('.postContainer:not(.come-in)');
-    dragMeKillMe = $('.postContainer:not(.come-in)');
+    dragMeKillMe = $('.postContainer');
+    dragMeKillMe = dragMeKillMe.slice(-1*newcount);
+    oldCount = e.detail.postCount;
     dragToKill();
 }, false);
 
@@ -116,3 +121,7 @@ function dragToKill()
   });
 }
      dragToKill();
+
+
+
+
