@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name        testicles
+// @name        4chan xtras
 // @namespace   eric
-// @description insert parent selectors jscript
+// @description do awesome things for great fun and edification
 // @include     https://boards.4chan.org/*
 // @include     http://boards.4chan.org/*
 // @grant          GM_getValue
@@ -11,8 +11,8 @@
 // @grant          GM_xmlhttpRequest
 // @grant          GM_addStyle
 // @version     1
-// @require    http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js
-// @require    http://code.jquery.com/ui/1.10.3/jquery-ui.js
+// @require    http://codeorigin.jquery.com/jquery.min.js
+// @require    http://codeorigin.jquery.com/ui/1.10.3/jquery-ui.min.js
 
 // ==/UserScript==
 
@@ -77,15 +77,17 @@ var win = $(window);
 
 document.addEventListener("ThreadUpdate", function(e){
     $modules = $('.postContainer:not(.come-in)');
-    dragToKill ();
+    dragMeKillMe = $('.postContainer:not(.come-in)');
+    dragToKill();
 }, false);
+
+var dragMeKillMe = $('.postContainer');
 
 function dragToKill() 
 {
-  $('.postContainer').draggable
+  dragMeKillMe.draggable
   ({
         axis: "x",
-        distance: 10,
         addClasses: false,
         revert: false,
         drag: function(event, ui) 
@@ -114,7 +116,3 @@ function dragToKill()
   });
 }
      dragToKill();
-
-
-
-
