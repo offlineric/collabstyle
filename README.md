@@ -1,3 +1,11 @@
+collabstyle
+===========
+
+__cool, so what is this?__
+
+this is an attempt at creating a *super sexy* 4chan userstyle with [@saxamaphone69](https://github.com/saxamaphone69)!
+
+
 https://github.com/offlineric/4chan-x/raw/master/builds/4chan-X.user.js
 
 ^ you will need this version of seaweed's 4chan x with approximately 2 whole lines added to it. i will try to keep it up to date. 
