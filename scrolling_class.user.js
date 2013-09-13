@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        testicles
 // @namespace   eric
-// @description insert parent selectors jscript
+// @description be awesome
 // @include     https://boards.4chan.org/*
 // @include     http://boards.4chan.org/*
 // @grant          GM_getValue
@@ -97,22 +97,22 @@ function dragToKill()
         revert: false,
         drag: function(event, ui) 
         {
-            if (Math.abs(ui.offset.left) < 200) {
+            if (Math.abs(ui.offset.left) < 100) {
                 $(this).draggable( "option", "revert", true );
                 $(this).css("background-color","#fff!important");
                 }
             else{
                 $(this).draggable( "option", "revert", false );
-                $(this).css("background-color","#f0f0f0!important");
+                $(this).css("background-color","#fafafa!important");
                 }
         },
         stop: function(event, ui) 
      {
-       if (Math.abs(ui.offset.left) > 200) 
+       if (Math.abs(ui.offset.left) > 100) 
        {
         var el = $(this);
-        if (ui.offset.left > 200) {el.addClass("remove-me");};
-        if (ui.offset.left <-200) {el.addClass("remove-me-l");};
+        if (ui.offset.left > 100) {el.addClass("remove-me");};
+        if (ui.offset.left <-100) {el.addClass("remove-me-l");};
         el.draggable('destroy');
         el.css("margin-bottom","-"+(el.height()+33)+"px"); //fixme. 33 is height of top and bottom margins +1 more for some reason
         el.css("pointer-events","none");
