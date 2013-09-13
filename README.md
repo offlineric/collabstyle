@@ -10,3 +10,12 @@ and the font lol.ttf if you want working symbol things because i used that in th
 you should probably have droid sans as well
 
 enjoy your animated 4chan 
+
+### what's new?
+
+![new hotness!](http://a.pomf.se/1Dm0.gif)
+
+
+p.s. you can find instructions for the firefox userchrome over here
+
+https://github.com/offlineric/this_repo_will_self_destruct/blob/master/README.md
