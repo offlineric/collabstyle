@@ -122,6 +122,20 @@ function dragToKill()
 }
      dragToKill();
 
+$(window).scroll(
+    {
+        previousTop: 0
+    }, 
+    function () {
+    var currentTop = $(window).scrollTop();
+    if (currentTop < this.previousTop) {
+        $("#header-bar").removeClass("hide-it");
+    } else {
+//down
+        $("#header-bar").addClass("hide-it");
+    }
+    this.previousTop = currentTop;
+});
 
 
 
