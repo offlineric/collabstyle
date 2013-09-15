@@ -267,6 +267,7 @@ a.quotelink.inlined {  outline: 0 !important;opacity: 1 !important;}
 
 .inline .come-in {transform: scale(0.05); opacity: 0;
         animation:qp-in .6s ease forwards;}
+.inline {width: 100%;}
 .inline {border: none !important; }
 .inline .postContainer {box-shadow: inset 0px 0px 6px 1px rgba(0,0,0,.1);}
 #qp {   transform: translateY(-150vh);
@@ -499,7 +500,8 @@ border-color: transparent #aaa transparent transparent;}
 */
 
 .postContainer {margin: 0em; padding: 1em; margin-bottom: 0; margin-top: -1px;
-background: #fefefe; border-radius: 0px; border: 1px solid #eee;}
+background: #fefefe; border-radius: 0px; border: 1px solid #eee;
+transform-style: preserve-3d;}
 /*a.summary {float: right; margin-right: 1em; margin-top: -4em; background: white;
 overflow: visible;}*/
 a.summary { margin-left: 4em;}
@@ -543,7 +545,10 @@ background: #a1b2ff !important; margin-top: 5px !important;
 @keyframes entry-in {from{transform:translateY(0%); opacity: 0;} to{transform: translateY(0%); opacity: 1;}}
 
 #notifications .warning {background: #ffa1b2 !important;}
-
+#header-bar {transition: all .6s ease !important;}
+#header-bar.hide-it {transform: translateY(-100%);}
+#header-bar.hide-it::after {content: " "; position: fixed; top: 100%; left: 0px; height: 1em; width: 100%; background: transparent;}
+#header-bar.hide-it:hover {transform: translateY(0);}
 .postContainer.quotesYou {
 margin-top: -2px;
 border-left: 4px solid #a1c1ff !important;
