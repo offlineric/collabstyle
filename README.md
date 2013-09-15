@@ -17,7 +17,7 @@ enjoy your animated 4chan
 
 ### what's new?
 
-![new hotness!](http://a.pomf.se/1Dm0.gif)
+![new hotness!](http://a.pomf.se/0Yf1.gif)
 
 
 p.s. you can find instructions for the firefox userchrome over here
