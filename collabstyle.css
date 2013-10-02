@@ -1,5 +1,5 @@
 @-moz-document domain("boards.4chan.org") { 
-
+strong {font-weight: normal !important;}
     * {
 	font-family:droid sans !important;
 }
@@ -55,7 +55,7 @@ html {
   font: 1em/1.4 droid sans;
   color: #3d3d3d;
   background-color: #f4f4f4;
-  background-color: #fff;
+  background-color: #fafafa;
   overflow-y: scroll;
   /*
 word-break: break-all;
@@ -71,6 +71,7 @@ body {
   margin: 0;
   min-height: 100%;
 background: white;
+background: #fafafa;
 }
 
 /*
@@ -102,7 +103,10 @@ transition: background-color .6s ease !important;
 }
 .replylink:hover, .current:hover {color: white !important; background-color: #1e90ff !important;}
  #shortcuts *:hover {background-color: #1e90ff !important;}
-.replylink, #shortcuts * {transition: background-color .6s ease !important;}
+.replylink, #shortcuts * {transition: background-color .6s ease !important;
+transform-style: preserve-3d;
+}
+
 /*
 Remove default margin on blockquotes.
 */
@@ -503,17 +507,18 @@ background: #fefefe; border-radius: 0px; border: 1px solid #eee;
 transform-style: preserve-3d;}
 /*a.summary {float: right; margin-right: 1em; margin-top: -4em; background: white;
 overflow: visible;}*/
-a.summary { margin-left: 4em;}
+.summary { margin-left: 4.5rem;}
 
-.opContainer {margin-bottom: 0em; border-top-right-radius: 5px; border-top-left-radius: 5px;}
+.opContainer {margin-bottom: 0em; border-top-right-radius: 5px; border-top-left-radius: 5px;
+}
 
 .postMessage {padding: .5em;  }
-.boardTitle {text-shadow: -1px -1px 1px #ddd!important; 
-font-size:8em; font-weight: 600; padding: 0em; text-align: center;
- padding-top: .3em; padding-bottom: .3em;
+.boardTitle {box-shadow: 0px 0px 6px 1px rgba(0,0,0,.1);
+font-size:6em; font-weight: 600; padding: 0em; text-align: center;
+ padding-top: 0em; padding-bottom: .3em;
  background: #fff; top: .5em; margin-bottom: .1em;
- border-radius: 5px; color: #f4f4f4; border: 1px solid transparent;
-background: transparent !important; }
+ border-radius: 5px; color: #aaa; border: 1px solid transparent;
+background: white !important; margin: 1rem; margin-left: 4rem; margin-right: 4rem; margin-top: 2rem; }
 .boardSubtitle {font-weight: 600;
 text-align: center; color: #aaa; margin-top: -3em; margin-bottom: 2em;}
 .boardSubtitle a {color: #a1b3ff !important;}
@@ -522,9 +527,11 @@ text-align: center; color: #aaa; margin-top: -3em; margin-bottom: 2em;}
 .op .postInfo {position: fixed; top: 1em;}
 .op {padding-top: 1.5em;}
 .pagelist {text-align: center; padding: 1em; font-size: 1em;margin-top: -3em; margin-bottom: 3em;
-margin-left: 0; margin-right: 0;}
+margin-left: 0; margin-right: 0; }
+.cataloglink {margin-top: 1rem;}
+.pagelist a {font-weight: bold !important;}
 .pages a::after, .pages a::before {content: "  ";}
-.pages {color: transparent; font-weight: 600;}
+.pages {color: transparent; font-weight: 600 !important;}
 .next, .prev {display: none;}
 
 .brackets-wrap::before, .brackets-wrap::after { display: none; }
@@ -544,10 +551,10 @@ background: #a1b2ff !important; margin-top: 5px !important;
 @keyframes entry-in {from{transform:translateY(0%); opacity: 0;} to{transform: translateY(0%); opacity: 1;}}
 
 #notifications .warning {background: #ffa1b2 !important;}
-#header-bar {transition: all .6s ease !important;}
-#header-bar.hide-it {transform: translateY(-100%);}
-#header-bar.hide-it::after {content: " "; position: fixed; top: 100%; left: 0px; height: 1em; width: 100%; background: transparent;}
-#header-bar.hide-it:hover {transform: translateY(0);}
+#header-bar {transition: all .3s ease !important;}
+#header-bar.hide-it {transform: translateY(-80%); }
+#header-bar.hide-it::after {content: " "; position: fixed; top: 100%; left: 0px; height: 2em; width: 100%; background: transparent;}
+#header-bar.hide-it:hover {transform: translateY(0); }
 .postContainer.quotesYou {
 margin-top: -2px;
 border-left: 4px solid #a1c1ff !important;
@@ -590,7 +597,7 @@ pointer-events: none; transition: background .6s ease;}
 #board-list {position: relative !important; top: 1px !important;}
 .backlink {font-size: 0;}
 .backlink:after {font-size: 12px; color: white; background: #a1b3ff;padding-top: .1em; padding-left: .2em; padding-right: .2em; border-radius: 3px; margin-left: 1em;transition: background .6s ease;
-font-family: lol; content: '\e800'; }
+content: '\e800'; }
 
 .menu-button {color: transparent;}
 .menu-button:after {content: '\e801'; font-family: lol; color: white; margin-left: -1.1em;}
@@ -612,11 +619,12 @@ font-family: lol; content: '\e800'; }
 .replyContainer .fileThumb img {float: left; margin-right: 1em;}
 .postContainer {overflow: auto;}
 
-#globalMessage {margin: 1em; text-align: center; 
-padding: 1em; border-radius: 5px; background: white; border: 1px solid #eee;}
+#globalMessage {margin: 1em; text-align: center; margin-left: 4rem; margin-right: 4rem; 
+padding: 1em; border-radius: 5px; background: white; border: 1px solid #eee;
+box-shadow: 0px 0px 6px 1px rgba(0,0,0,.1);}
 
 
-.hide-announcement:after {position: relative; right: -.5em; top: .7em; font-size: 10px; color: white; text-align: left; transition: background .6s ease;
+.hide-announcement:after {position: relative; right: -4.5em; top: .7em; font-size: 10px; color: white; text-align: left; transition: background .6s ease;
 font-weight: 600; background: #a1b3ff; padding: .2em; border-radius: 4px; content: "hide";}
 .pages strong a:hover, .hide-announcement:hover:after {background: #1e90ff }
 
