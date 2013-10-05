@@ -597,7 +597,7 @@ pointer-events: none; transition: background .6s ease;}
 #board-list {position: relative !important; top: 1px !important;}
 .backlink {font-size: 0;}
 .backlink:after {font-size: 12px; color: white; background: #a1b3ff;padding-top: .1em; padding-left: .2em; padding-right: .2em; border-radius: 3px; margin-left: 1em;transition: background .6s ease;
--font-family: lol; content: '\e800'; }
+font-family: lol; content: '\e800'; }
 
 .menu-button {color: transparent;}
 .menu-button:after {content: '\e801'; font-family: lol; color: white; margin-left: -1.1em;}
