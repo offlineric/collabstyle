@@ -643,15 +643,6 @@ box-shadow: 0px -4px 3px -2px rgba(0,0,0,.1);}
 
 .postContainer {border-color: transparent !important; }
 
-
-.board_mlp::after, .board_b::after {content: url('https://www.gnu.org/music/FreeSWSong.ogg');}
-.board_mlp::before, .board_b::before {content: "fuck u faget!!!"; width: 100%; height: 100vh; position: fixed; top: 0; left: 0; z-index: 9000000000000000000000000000001; font-size: 30vh; color: red; padding: 2vh; text-align: center; 	animation:fags .1s linear infinite; }
-@keyframes fags {
-25% {color: green; background-color: red;}
-50% {color: red; background-color: green;}
-75% {color: blue; background-color: yellow;}
-100% {color: yellow; background-color: blue;}}
-
 .come-in {transform: translateY(400px); opacity: 1; 
 	animation:qp-in .6s ease forwards;
 }
