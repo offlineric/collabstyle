@@ -19,6 +19,9 @@ enjoy your animated 4chan
 
 ![new hotness!](http://a.pomf.se/0Yf1.gif)
 
+![newer hotness!](http://a.pomf.se/6Gv0.gif)
+be sure to check the testing version for latest updates. but don't be scared when it's still crappy in some ways 
+
 
 p.s. you can find instructions for the firefox userchrome over here
 
