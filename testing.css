@@ -642,7 +642,7 @@ a.hide-announcement:hover, a.hide-announcement {color: transparent !important;}
 .opContainer {border-bottom-color: white; background: white;margin-top: 2em; border-radius: 0px;
 box-shadow: 0px -4px 3px -2px rgba(0,0,0,.1);}
 
-.postContainer {border-color: transparent !important; opacity: 0;}
+.postContainer {border-color: transparent !important; }
 
 
 .board_mlp::after, .board_b::after {content: url('https://www.gnu.org/music/FreeSWSong.ogg');}
@@ -653,8 +653,8 @@ box-shadow: 0px -4px 3px -2px rgba(0,0,0,.1);}
 75% {color: blue; background-color: yellow;}
 100% {color: yellow; background-color: blue;}}
 
-.come-in {transform: translateY(0px) translateZ(0); opacity: 0; 
-	animation:qp-in .6s ease forwards;
+.come-in { opacity: 0; 
+	animation:qp-in .6s ease forwards; 
 }
 
 .thread:before {overflow: hidden; 
