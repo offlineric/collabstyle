@@ -709,8 +709,9 @@ animation: leggs 2s ease forwards;}
 html { overflow-x: hidden; }
 
 .op > .file >.fileInfo {display: none;}
-.op > .postInfo {position: fixed; top: 1em; left: 1em;}
-.op {display: flex !important;}
+.op > .postInfo {position: fixed; top: .5em; left: 1em;}
+.op, .opContainer .fileThumb {display: flex !important;}
+
 
 }
 
