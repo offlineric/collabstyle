@@ -567,6 +567,7 @@ border-left: 4px solid #cc6161 !important;}
 .fileText a {padding-right: 1em;}
 
 
+
 #qp .opContainer .file {padding-top: 1.5em;}
 a.menu-button {float: right; opacity: 0; transition:all .9s ease !important;
 margin-top: -.8em; margin-right: -.8em;}
@@ -678,6 +679,7 @@ background: #ececec; content: " "; padding-right: 100%; padding-top: 4px; left: 
 .file:hover > .fileInfo {opacity: 1 !important;}
 .file {margin-top: .5em;}
 
+
 .postContainer {box-shadow: 0px 0px 6px 1px rgba(0,0,0,.1); margin: 1em; margin-left: 4em; margin-right: 4em; border-radius: 0px; 
 box-shadow: none;
  }
@@ -705,6 +707,10 @@ animation: leggs 2s ease forwards;}
 .remove-me-l {z-index: 90000000001; transition: all 1s ease; transform: translateX(-50%); opacity: 0 !important;}
 .postContainer:active { cursor: move; }
 html { overflow-x: hidden; }
+
+.op > .file >.fileInfo {display: none;}
+.op > .postInfo {position: fixed; top: 1em; left: 1em;}
+.op {display: flex !important;}
 
 }
 
