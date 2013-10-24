@@ -64,7 +64,8 @@ hyphens: auto;
 body {
   margin: 0;
   min-height: 100%;
-background: #fff;
+  background: #fff;
+  overflow-x: hidden;
 }
 
 /*
@@ -326,6 +327,20 @@ hr, .mobile
   animation:qp-in .6s ease forwards; 
 }
 
+.remove-me {
+  z-index: 90000000001; 
+  transition: all 1s ease; 
+  transform: translateX(50%); 
+  opacity: 0 !important;
+  animation: leggs 2s ease forwards;
+}
+.remove-me-l {
+  z-index: 90000000001; 
+  transition: all 1s ease; 
+  transform: translateX(-50%); 
+  opacity: 0 !important;
+}
+
 /* hovered quoted posts */
 
 #qp {   
@@ -359,8 +374,20 @@ hr, .mobile
   width: 100%; 
   border: none !important;
 }
+.inline.lol {
+  opacity: 0 !important;
+  transition: all .6s ease !important;
+  transform: scale(0.05) !important;
+}
+.inline .come-in {
+transform: scale(1.05);
+}
+.prettyprint,
 .inline {
   box-shadow: inset 0px 0px 4px -3px black;
+}
+.prettyprint {
+  padding: 1em;
 }
 
 /* notifications */
@@ -373,7 +400,13 @@ hr, .mobile
   margin-top: 5px !important;	 
 }
 #notifications .warning {
-  background: #ffa1b2 !important;
+  background: #cc6161 !important;
+}
+#notifications a {
+  color: white !important;
+}
+#notifications a:hover {
+  transform: scale(1.5);
 }
 
 /* the header bar */
@@ -461,6 +494,9 @@ margin-left: -1em;
 .quotelink.you {
   font-size: 0px;
 }
+.quote {
+  color: #65b388;
+}
 .quotelink.you:after {
   font-size: 8pt; 
   font-weight: bold; 
@@ -484,7 +520,7 @@ margin-left: -1em;
   overflow: auto;
   margin: 1rem; 
   padding: 1em; 
-  background: #fefefe; 
+  background: #fff; 
   transform-style: preserve-3d;
   transform: translateZ(0);
 }
@@ -525,7 +561,7 @@ margin-left: -1em;
 
 
 /* FIX ME PLEASE FOR THE LOVE OF GOD AND ALL THAT IS HOLY */
-.fileInfo {opacity: 0; transition: opacity .3s ease 1s; float: right; position: relative; top: -2.2em; 
+.fileInfo {opacity: 0; transition: opacity .3s ease 1s; float: right; position: relative; top: -1.8em; 
 right: 2.4em;}
 .post:hover .fileInfo {opacity: 1 !important; transition: opacity .3s ease 0s;}
 a.menu-button {float: right; opacity: 1; transition:all .2s ease 1s !important; margin: 0 !important;
@@ -534,7 +570,7 @@ margin-bottom: -1em !important;
  }
  .post .menu-button::after {content: "⨀" !important;  font-size: 8pt !important;
 position: fixed !important;  background: transparent !important; color: #a1b3ff !important;
-position: absolute; top: .6em; right: 2.2em; opacity: 0 !important; display: table !important;
+position: absolute; top: 1em; right: 2.2em; opacity: 0 !important; display: table !important;
 pointer-events: auto !important; transition: opacity .3s ease 1s !important;}
 .post:hover .menu-button::after {opacity: 1 !important; transition: opacity .3s ease 0s !important;}
 
@@ -545,6 +581,9 @@ pointer-events: auto !important; transition: opacity .3s ease 1s !important;}
   top: 1em; 
   left: 1em; 
   width: 100%;
+}
+.opContainer {
+  margin-top: 0;
 }
 .post.op {
   margin-top: 0;
@@ -615,14 +654,13 @@ transition: transform .9s ease !important;
   border-top: 1px solid #f4f4f4; 
   border-bottom: 1px solid #fafafa;
   box-shadow: inset 0px 0px 2px rgba(0,0,0,.1);
-  background: #ececec; 
+  background: #fff; 
   content: " "; 
   padding-right: 100%; 
   padding-top: 4px; 
   left: 0; 
   right: 0;
 }
-
 
 /* qr fun time */
 
