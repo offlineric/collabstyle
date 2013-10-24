@@ -510,11 +510,23 @@ pointer-events: auto !important; transition: opacity .3s ease 1s !important;}
 /* op dickery */
 .op .postInfo {
   position: fixed; 
-  top: 0em; 
+  top: 1em; 
   left: 1em; 
   width: 100%;
 }
-.op .fileThumb {margin-top: .5em;}
+.post.op {
+  margin-top: 0;
+  padding-top: 1rem !important;
+}
+.post.op .fileInfo {
+  padding-top: 1rem;
+}
+.post.op .menu-button:after {
+  padding-top: 3px;
+}
+.op .fileThumb {
+  margin-top: .5em;
+}
 
 /* drop menus */
 
@@ -577,7 +589,7 @@ transition: transform .9s ease !important;
 }
 
 
-/* QR */
+/* qr fun time */
 
 .field[data-name="name"] {
   border-top-left-radius:4px !important;
@@ -594,6 +606,7 @@ transition: transform .9s ease !important;
 }
 .move, .dialog.has-captcha {
   visibility: collapse;
+  background: transparent !important;
 }
 #qr form {
   visibility: visible;
