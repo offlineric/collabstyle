@@ -353,6 +353,16 @@ hr, .mobile
   border-bottom: none !important;
 }
 
+/* inlines */
+
+.inline, .inline .post {
+  width: 100%; 
+  border: none !important;
+}
+.inline {
+  box-shadow: inset 0px 0px 4px -3px black;
+}
+
 /* notifications */
 
 #notifications >* {
@@ -448,9 +458,30 @@ margin-left: -1em;
 }
 
 /* posts */
+.quotelink.you {
+  font-size: 0px;
+}
+.quotelink.you:after {
+  font-size: 8pt; 
+  font-weight: bold; 
+  content: "@eric"; 
+  color: #cc6161;
+}
+
+.postContainer.quotesYou {
+  border-left: 4px solid #a1c1ff !important;
+}
+.postContainer.yourPost{
+  border-left: 4px solid #cc6161 !important;
+}
+
+.highlight-own:root .yourPost > .reply, .highlight-you:root .quotesYou > .reply {
+    border-left: none !important;
+} 
 
 .postContainer {
-clear: both;
+  clear: both;
+  overflow: auto;
   margin: 1rem; 
   padding: 1em; 
   background: #fefefe; 
@@ -459,11 +490,12 @@ clear: both;
 }
 .postMessage {
   padding: .5em;
-  display: table-cell;
+  display: block;
 }
 .fileThumb { 
   float: left; 
   margin-left: .5em;
+  margin-right: .5em;
 }
 .backlink {
   font-size: 0;
@@ -525,6 +557,9 @@ pointer-events: auto !important; transition: opacity .3s ease 1s !important;}
   padding-top: 3px;
 }
 .op .fileThumb {
+  margin-top: 1em;
+}
+.op .postMessage {
   margin-top: .5em;
 }
 
