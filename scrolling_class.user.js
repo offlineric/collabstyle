@@ -73,6 +73,7 @@ var hch =  html.clientHeight;
 document.addEventListener("ThreadUpdate", function(e){
     newcount = e.detail.postCount - oldCount;
     $modules = $('.postContainer:not(.come-in)');
+    seeModules();
     dragMeKillMe = $('.postContainer');
     dragMeKillMe = dragMeKillMe.slice(-1*newcount);
     oldCount = e.detail.postCount;
@@ -88,6 +89,7 @@ function dragToKill()
         axis: "x",
         addClasses: false,
         revert: false,
+        appendTo: 'body',
         drag: function(event, ui) 
         {
             if (Math.abs(ui.offset.left) < 100) {
@@ -109,6 +111,7 @@ function dragToKill()
         el.draggable('destroy');
         el.css("margin-bottom","-"+(el.height()+33)+"px"); //fixme. 33 is height of top and bottom margins +1 more for some reason
         el.css("pointer-events","none");
+        setTimeout( seeModules, 500 );
        }
      }
   });
@@ -126,8 +129,8 @@ $(window).scroll(
     } else {
 //down
         $("#header-bar").addClass("hide-it");
-                 if ($modules.length > 0) { requestAnimFrame(seeModules);}
     }
+    if ($modules.length > 0) { requestAnimFrame(seeModules);}
     this.previousTop = currentTop;
 });
 
