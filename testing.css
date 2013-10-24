@@ -1,7 +1,7 @@
 @-moz-document domain("boards.4chan.org") { 
 strong {font-weight: normal !important;}
     * {
-	font-family:droid sans !important;
+	font-family:"droid sans", sans !important;
 }
 #removestyle {
   position: fixed;
@@ -49,10 +49,6 @@ Now, normally you redefine the :focus style. I'm not.
 
 html {
   font: 1em/1.4 droid sans;
-  color: #3d3d3d;
-  background-color: #f4f4f4;
-  background-color: #fafafa;
-  background-color: #f3f3f3;
   background: #fff;
   overflow-y: scroll;
   /*
@@ -68,9 +64,6 @@ hyphens: auto;
 body {
   margin: 0;
   min-height: 100%;
-background: white;
-background: #fafafa;
-background: #f3f3f3;
 background: #fff;
 }
 
@@ -80,12 +73,12 @@ background: #fff;
 
 a {
   color: #a1b3ff !important;
-transition: color .6s ease !important;
+  transition: color .6s ease !important;
   text-decoration: none !important;
 }
 a:hover {
-          color: #1e90ff !important;
-        }
+  color: #1e90ff !important;
+}
 
 /*
 Normalise font-weight across browsers and
@@ -98,16 +91,8 @@ strong,
 .name,
 .subject,
 .current {
-  font-weight: 700;
-transition: background-color .6s ease !important;
-}
-.menu-button:after {transition: color .6s ease !important; }
-.replylink:hover, .current:hover {color: white !important; background-color: #1e90ff !important;}
- #shortcuts *:hover {color: #1e90ff !important;}
- .menu-button i {visibility: hidden !important;}
- .menu-button:hover:after {color: #1e90ff !important;}
-.replylink, #shortcuts * {transition: color .6s ease !important;
-transform-style: preserve-3d;
+font-weight: 700;
+transition: color .6s ease;
 }
 
 /*
@@ -183,7 +168,7 @@ bottom of their containers: h5bp.com/i/440
 */
 
 img {
-  vertical-align: middle;
+  vertical-align: top;
 }
 
 /*
@@ -261,36 +246,287 @@ content: '';
 display: table;
 clear: both;
 }
-*/
 
-a.quotelink.inlined {  outline: 0 !important;opacity: 1 !important;}
 
-.ad-plea-middle, .ad-plea-top, .ad-plea-bottom, a.hide-reply-button, div.sideArrows, div.boardBanner > img, .qr-link, div#absbot, div.stylechanger, div.deleteform, div.navLinks, a.hide-thread-button, div.reply input, div.navLinksBot, input[type="checkbox"]#imageExpand, .hide_reply_button.stub a::before, .postInfo input[type="checkbox"], #toggleMsgBtn, #styleSwitcher, #info, #pass > span, input[type="Submit"], #recaptcha_reload_btn, #recaptcha_switch_audio, #recaptcha_whatsthis, hr, .mobile {
+
+
+BEGIN THE MAGIC
+
+
+also chuck the stuff we don't like*/
+.ad-plea-middle, 
+.ad-plea-top, 
+.ad-plea-bottom, 
+a.hide-reply-button, 
+div.sideArrows, 
+div.boardBanner > img, 
+.qr-link, div#absbot, 
+div.stylechanger, 
+div.deleteform, 
+div.navLinks, 
+a.hide-thread-button, 
+div.reply input, 
+div.navLinksBot, 
+input[type="checkbox"]#imageExpand, 
+.hide_reply_button.stub a::before, 
+.postInfo input[type="checkbox"], 
+#toggleMsgBtn, 
+#styleSwitcher, 
+#info, 
+#pass > span, 
+input[type="Submit"], 
+#recaptcha_reload_btn, 
+#recaptcha_switch_audio, 
+#recaptcha_whatsthis, 
+hr, .mobile 
+.next, 
+.prev, 
+.brackets-wrap::before, 
+.brackets-wrap::after {
 	display:none !important;
 }
-
-.lol {opacity: 0 !important; transition: opacity .6s ease !important;}
-
-.inline .come-in {transform: scale(0.05); opacity: 0;
-        animation:qp-in .6s ease forwards;}
-.inline {width: 100%;}
-.inline {border: none !important; }
-.inline .postContainer {box-shadow: inset 0px 0px 6px 1px rgba(0,0,0,.1);}
-#qp {   transform: translateY(-150vh);
-	opacity:.05;
-	animation:qp-in .6s ease forwards;
- width: 70%; z-index: 5000 !important;
- left: 5em !important; right: 5em !important;
-pointer-events: none;
-
+/*set up some animations for later use*/
+@keyframes qp-in {
+  to { transform: translateY(0px); opacity: 1;}
 }
-#qp .postContainer {width: 100%;
-border-radius: 4px; box-shadow: 0px 0px 6px 1px rgba(0,0,0,.1);}
-@keyframes qp-in {to { transform: translateY(0px); opacity: 1;}}
+@keyframes sets-in {
+  from {transform: translateX(100%) translateY(-50%); opacity: 0}
+  to {transform: translateX(-50%) translateY(-50%); opacity: 1;}
+}
+@keyframes notes-in {
+  to {transform: translateY(0%); opacity: 1; }
+}
+@keyframes entry-in {
+  from{transform:translateY(0%); opacity: 0;} 
+  to{transform: translateY(0%); opacity: 1;}}
 
-#qp.lol {transform: translateY(-150vh) !important; transition: all .9s ease !important;}
-.qphl {outline: none !important;opacity: 0; }
-.post {transition: opacity .3s ease;}
+
+/*default animation for elements removed otherwise they might just stick around forever*/
+.lol {
+  opacity: 0 !important; 
+  transition: opacity .6s ease !important;
+} 
+
+#qp.lol {
+  transform: translateY(-150vh) !important; 
+  transition: all .9s ease !important;
+}
+
+#fourchanx-settings.lol {
+  transition: all .9s ease !important;
+  transform: translateX(100%) translateY(-50%) !important;
+}
+.notification.lol {
+  transform: translateY(150vh)!important; 
+  opacity: 0!important; 
+  transition: all .9s ease!important; 
+}
+.come-in { 
+  opacity: 0; 
+  animation:qp-in .6s ease forwards; 
+}
+
+/* hovered quoted posts */
+
+#qp {   
+  transform: translateY(-150vh);
+  opacity:.05;
+  animation:qp-in .6s ease forwards;
+  width: 70%; z-index: 5000 !important;
+  left: 5em !important; right: 5em !important;
+  pointer-events: none;
+}
+#qp .postContainer {
+  width: 100%;
+  border-radius: 4px;
+  box-shadow: 0px 0px 6px 1px rgba(0,0,0,.1);
+}
+.qphl {
+  outline: none !important;opacity: 0; 
+}
+#qp {
+  background: transparent !important; 
+  border: none !important; 
+  box-shadow: none !important;
+}
+#qp .backlink {
+  border-bottom: none !important;
+}
+
+/* notifications */
+
+#notifications >* {
+  transform: translateY(-150vh); 
+  opacity: 0;	
+  animation:notes-in .9s ease forwards; 	
+  background: #a1b2ff !important; 
+  margin-top: 5px !important;	 
+}
+#notifications .warning {
+  background: #ffa1b2 !important;
+}
+
+/* the header bar */
+
+#header-bar {
+  background: #fff !important;
+  box-shadow: 0px 2px 4px rgba(0,0,0,.10)!important;
+  padding: .5em !important;
+  margin-bottom: .5em !important;
+  border-bottom: 1px solid #ddd !important;
+  transition: all .3s ease !important;
+}
+#header-bar.hide-it {
+  transform: translateY(-120%); 
+}
+#header-bar.hide-it::after {
+  content: " "; 
+  position: fixed; 
+  top: 100%; 
+  left: 0px; 
+  height: 3em; 
+  width: 100%; 
+  background: transparent;
+}
+#header-bar.hide-it:hover {
+  transform: translateY(0); 
+}
+
+.replylink, 
+.current, 
+.shortcut, 
+#update-status.new {
+  background-color: transparent !important;
+  color: #a1b3ff !important; 
+  padding: .2em !important;
+  font-weight: 600 !important;
+}
+
+#update-status.new {
+  background-color: transparent !important;
+}
+
+#board-list {
+  position: relative;
+  top: 5px;
+}
+
+/* board title */
+
+.boardTitle {
+  font-size:6rem; 
+  font-weight: 600; 
+  padding: 0em; 
+  text-align: center;
+  padding-top: 0; 
+  padding-bottom: .3rem;
+  background: #fff; 
+  top: .5rem; 
+  margin-bottom: .1rem;
+  color: #aaa; 
+  background: white; 
+  margin: 1rem; 
+  margin-left: 4rem; 
+  margin-right: 4rem; 
+  margin-top: 2rem; 
+}
+.boardSubtitle {
+  text-align: center; 
+  color: #aaa; 
+  margin-top: -3em; 
+  margin-bottom: 2em;
+}
+
+/* menu buttons */
+
+.menu-button {visibility: collapse;}
+.menu-button:after {
+  content: "⨀";
+  font-size: 15px;
+  visibility: visible;
+margin-left: -1em; 
+}
+
+/* posts */
+
+.postContainer {
+clear: both;
+  margin: 1rem; 
+  padding: 1em; 
+  background: #fefefe; 
+  transform-style: preserve-3d;
+  transform: translateZ(0);
+}
+.postMessage {
+  padding: .5em;
+  display: table-cell;
+}
+.fileThumb { 
+  float: left; 
+  margin-left: .5em;
+}
+.backlink {
+  font-size: 0;
+}
+.backlink:after {
+  font-size: 12px; 
+  background: white;
+  padding: 1px;
+  margin-left: 1rem;
+  transition: color .6s ease;
+  font-family: lol; 
+  content: '\e800'; 
+}
+
+.backlink:not(:last-child):after {
+  margin-right: -1.6em; 
+  transition: all .6s 1s ease;
+}
+.post:hover .backlink:after {
+  margin-right: 0;
+  transition: all .6s 0s ease;
+}
+.dateTime {
+  padding-left: 1rem; 
+  padding-right: 1rem;
+}
+
+
+/* FIX ME PLEASE FOR THE LOVE OF GOD AND ALL THAT IS HOLY */
+.fileInfo {opacity: 0; transition: opacity .3s ease 1s; float: right; position: relative; top: -2.2em; 
+right: 2.4em;}
+.post:hover .fileInfo {opacity: 1 !important; transition: opacity .3s ease 0s;}
+a.menu-button {float: right; opacity: 1; transition:all .2s ease 1s !important; margin: 0 !important;
+top: -1.6em; left: 0; width: 100%; margin-right: -100%; z-index: 1 !important; max-height: 1.9em !important;
+margin-bottom: -1em !important;
+ }
+ .post .menu-button::after {content: "⨀" !important;  font-size: 8pt !important;
+position: fixed !important;  background: transparent !important; color: #a1b3ff !important;
+position: absolute; top: .6em; right: 2.2em; opacity: 0 !important; display: table !important;
+pointer-events: auto !important; transition: opacity .3s ease 1s !important;}
+.post:hover .menu-button::after {opacity: 1 !important; transition: opacity .3s ease 0s !important;}
+
+
+/* op dickery */
+.op .postInfo {
+  position: fixed; 
+  top: 0em; 
+  left: 1em; 
+  width: 100%;
+}
+.op .fileThumb {margin-top: .5em;}
+
+/* drop menus */
+
+#menu, .submenu {
+  background: #fff !important; 
+}
+#menu * {
+  font-size: 10px !important;
+}
+
+/* settings */
+
 #fourchanx-settings {
 	background:#fff !important;
 	border-radius:5px !important;
@@ -302,427 +538,119 @@ transition: transform .9s ease !important;
 
 }
 
-@keyframes sets-in {
-from {transform: translateX(100%) translateY(-50%); opacity: 0}
-  to {transform: translateX(-50%) translateY(-50%); opacity: 1;}}
+/* pagelist */
 
-#fourchanx-settings.lol {transition: all .9s ease !important;
-transform: translateX(100%) translateY(-50%) !important;}
-
-
-
-.dialog.has-captcha {
-	background:transparent!important;
-	box-shadow:none!important;
+.pagelist {
+  text-align: center; 
+  padding: 1em; 
+  font-size: 1em;
+  margin-top: 2em; 
+  margin-bottom: 2em;
+  margin-left: 0; 
+  margin-right: 0; 
+}
+.cataloglink {
+  margin-top: 1rem;
+}
+.pagelist a {
+  font-weight: bold;
+}
+.pages {
+  color: transparent; 
+  font-weight: 600 !important;
 }
 
-#qr {
-	position:absolute !important;
-	top:-16px !important;
-left:0% !important;
-	width:0px !important;
-	z-index:1;
+
+/* thread separators */
+
+.thread:before {
+  overflow: hidden; 
+  border-top: 1px solid #f4f4f4; 
+  border-bottom: 1px solid #fafafa;
+  box-shadow: inset 0px 0px 2px rgba(0,0,0,.1);
+  background: #ececec; 
+  content: " "; 
+  padding-right: 100%; 
+  padding-top: 4px; 
+  left: 0; 
+  right: 0;
 }
+
+
+/* QR */
 
 .field[data-name="name"] {
-	border-top-left-radius:4px !important;
+  border-top-left-radius:4px !important;
 }
-
 .field[data-name="sub"] {
-	border-top-right-radius:4px !important;
+  border-top-right-radius:4px !important;
 }
-
-
 #qr-filename-container.field {
-	border-bottom-left-radius:4px !important;
+  border-bottom-left-radius:4px !important;
 }
-
-
-
-
-
 #qr input {
-	margin-right:-1px !important;
-	margin-bottom:-1px!important;
+  margin-right:-1px !important;
+  margin-bottom:-1px!important;
 }
-
- .move {
-	position:fixed !important;
-	right:0px !important;
-	bottom:0px !important;
-	margin-right:0px !important;
-	padding-top:0rem!important;
-	padding-right:100% !important;
-	padding-bottom:0px !important;
-	background-color:transparent !important;
-	color:transparent !important;
-	font-size:0px !important;
-max-height: 0px !important;
-max-width: 0px !important;
-	cursor:progress !important;
-	border:solid red 0px;
-background: red !important;
-
+.move, .dialog.has-captcha {
+  visibility: collapse;
 }
-#menu.lol {opacity: 0;}
 #qr form {
-	position:fixed !important;
-
-	right:1em !important;
-
-	bottom:1em;
-background: white;
-	margin-bottom:14px!important;
-	padding-top:0px !important;
-	padding-right:0px !important;
-	padding-bottom:0px !important;
-margin: 0;
-padding: 0em !important;
-padding-top: 0 !important;
-
-	/*BOOKMARK FOR QR HIDING*/
-	transform:rotate(0deg) translateY(100%) translateX(0%) translateZ(0);
-	opacity:1;
-	transform-origin:bottom right;
-	z-index:1 !important;
-	transition:all 0.3s ease .5s !important;
-box-shadow: 0px 0px 4px 1px rgba(0,0,0,.2);
-box-shadow: none;
-border: 1px solid white;
-border-radius: 5px;
-
-
+  visibility: visible;
+  position:fixed;
+  right:0rem;
+  bottom:0rem;
+  background: white;
+  margin-bottom: 11px;  /*only because i have a 4px white window border to blend with :) */
+  margin-right: 15px;
+  padding: 0em;
+  transform:translateY(95%);
+  z-index:1 !important;
+  transition:transform 0.3s ease .5s;
+  border: 1px solid #ddd !important;
+  border-radius: 5px;
 }
-
-#qr form:hover, #qr.has-focus > form, #qr:hover > form {
-	bottom:-.4em;
-border: 1px solid #ddd !important;
-	transform:rotate(0deg) translateY(0%) translateX(0%);
-	opacity:1;
-	pointer-events:auto;
-	transition:all .3s ease .05s !important;
+#qr form:hover, 
+#qr.has-focus > form, 
+#qr:hover > form {
+  border: 1px solid #ddd;
+  transform:translateY(0%);
+  transition:transform .3s ease .05s;
 }
-
-
-#qr-filerm {
-	padding-top:2px !important;
-	float:left !important;
-	height:20px !important;
-	margin-bottom:-2px !important;
-	color:#aaa !important;
-	background:#fff !important;
+#dump-button, #qr-filerm {
+	padding-top:2px;
+	float:left;
+	height:20px;
 }
-
-#dump-button {
-	float:left !important;
-	height:20px !important;
-	margin-bottom:-2px !important;
-	color:#aaa !important;
-	background:#fff !important;
+#qr input[type="submit"] {                      /* voodoo */
+  display: table !important;
+  position: absolute !important; 
+  float: right !important;
+  right: 1px !important; 
+  bottom: 2px !important;
+  width: 102px !important; 
+  height: 22px !important;
+  margin-top: -29px !important; 
+  margin-left: 0px !important;
+  padding-bottom: 2px !important;
+  color: #ccc !important;
+  border-left: 0px !important;
+  font-size: 9pt !important;
+  text-transform: lowercase !important;
+  -moz-appearance: none !important;
+  background: #fff !important;
+  border: solid #aaa 1px !important;
+  border-left: solid #aaa 0px!important;
+  border-bottom-right-radius: 4px !important;
+  border-color: transparent !important;
 }
-
-#file-n-submit {
-	margin-top:-1px !important;
+#dump-list-container {
+  background: #eee;
 }
-
-#qr input[type="submit"] {
-    display: table !important;
-    position: absolute !important; float: right !important;
-    right: 1px !important; bottom: 2px !important;
-    width: 102px !important; height: 22px !important;
-    margin-top: -29px !important; margin-left: 0px !important;
-    padding-bottom: 2px !important;
-    color: #ccc !important;
-    border-left: 0px !important;
-    font-size: 9pt !important;
-    text-transform: lowercase !important;
-    -moz-appearance: none !important;
-    background: #fff !important;
-    border: solid #ccc 1px !important;
-    border-left: solid #ccc 0px!important;
-    border-bottom-right-radius: 4px !important;
-    border-color: transparent !important;
-}
-#qr [type="submit"] {
-    background: white!important 
+#qr form >*, #qr * {
+  border-color: transparent !important;
 }
 
 
-#dump-list-container {background: white;}
-#qr form >*, #qr * {border-color: transparent !important;}
-
-
-.field[data-name="com"] {min-height: 3.5rem !important;}
-
-
-
-#header-bar {
-
-
-background: #fff !important;
-border: 1px solid #ddd !important;
-box-shadow: 0px 2px 4px rgba(0,0,0,.10)!important;
-border-top: 1px solid #ddd!important;
-border-color: white !important;
-border-bottom: 1px solid #ddd !important;
-padding: .5em !important;
-margin: .5em !important;
-margin-left: 0 !important;
-margin-right: 0 !important;
-margin-top: 0 !important;
-
-border-bottom: 1px solid #aaa !important;
-border-top: 0px solid #a1b3ff !important;
-border-left: 0px solid #aaa !important;
-border-bottom-color: #ddd !important;
-border-radius: 0px !important;
-border-bottom-right-radius: 0px !important;
-border-bottom-left-radius: 0px !important;
 }
-
-
-
-/*body::before {content: " "; z-index: 500;
-position: fixed; top: 0; left: 0; right: 0; height: .5em; background: #fff;} */
-body::after {content: " "; z-index: -10;
-position: fixed; top: 37px; left: 12px; right: 12px; height: 5px; background: #ababab;}
-
-
-
-.quotelink.you {font-size: 0px;}
-.quotelink.you:after {font-size: 8pt; font-weight: bold; content: "@eric"; color: #cc6161;}
-
-
-/*
-#header-bar:after {content: " "; position: fixed; right: 7px; top: 37px;
-width: 0px;
-height: 0px;
-border-style: solid;
-border-width: 5px 5px 0 0;
-border-color: #aaa transparent transparent transparent;}
-#header-bar:before {content: " "; position: fixed; left: 7px; top: 37px;
-width: 0px;
-height: 0px;
-border-style: solid;
-border-width: 0 5px 5px 0;
-border-color: transparent #aaa transparent transparent;}
-*/
-
-.postContainer {margin: 0em; padding: 1em; margin-bottom: 0; margin-top: -1px;
-background: #fefefe; border-radius: 0px; border: 1px solid #eee;
-transform-style: preserve-3d;
-transform: translateZ(0);}
-/*a.summary {float: right; margin-right: 1em; margin-top: -4em; background: white;
-overflow: visible;}*/
-.summary { margin-left: 4.5rem;}
-
-.opContainer {margin-bottom: 0em; border-top-right-radius: 5px; border-top-left-radius: 5px;
-}
-
-.postMessage {padding: .5em;  }
-.boardTitle {box-shadow: 0px 0px 6px 1px rgba(0,0,0,.1);
-font-size:6em; font-weight: 600; padding: 0em; text-align: center;
- padding-top: 0em; padding-bottom: .3em;
- background: #fff; top: .5em; margin-bottom: .1em;
- border-radius: 5px; color: #aaa; border: 1px solid transparent;
-background: white !important; margin: 1rem; margin-left: 4rem; margin-right: 4rem; margin-top: 2rem; }
-.boardSubtitle {font-weight: 600;
-text-align: center; color: #aaa; margin-top: -3em; margin-bottom: 2em;}
-.boardSubtitle a {color: #a1b3ff !important;}
-.boardSubtitle a:hover{color: #1e90ff !important;}
-#qp {background: transparent !important; border: none !important; box-shadow: none !important;}
-.op .postInfo {position: fixed; top: 1em;}
-.op {padding-top: 1.5em;}
-.pagelist {text-align: center; padding: 1em; font-size: 1em;margin-top: -3em; margin-bottom: 3em;
-margin-left: 0; margin-right: 0; }
-.cataloglink {margin-top: 1rem;}
-.pagelist a {font-weight: bold !important;}
-.pages a::after, .pages a::before {content: "  ";}
-.pages {color: transparent; font-weight: 600 !important;}
-.next, .prev {display: none;}
-
-.brackets-wrap::before, .brackets-wrap::after { display: none; }
-
-#notifications >* {transform: translateY(-150vh); opacity: 0;	animation:notes-in .9s ease forwards; 	
-background: #a1b2ff !important; margin-top: 5px !important;	 
-}
-
-#notifications a {color: white !important;}
-#notifications a:hover {color: red !important;}
-.notification.lol {transform: translateY(150vh)!important; opacity: 0!important; transition: all .9s ease!important; }
-
-
-@keyframes notes-in {
-  to {transform: translateY(0%); opacity: 1; }}
-.entry {animation:entry-in .9s ease forwards; }
-@keyframes entry-in {from{transform:translateY(0%); opacity: 0;} to{transform: translateY(0%); opacity: 1;}}
-
-#notifications .warning {background: #ffa1b2 !important;}
-#header-bar {transition: all .3s ease !important;}
-#header-bar.hide-it {transform: translateY(-120%); }
-#header-bar.hide-it::after {content: " "; position: fixed; top: 100%; left: 0px; height: 3em; width: 100%; background: transparent;}
-#header-bar.hide-it:hover {transform: translateY(0); }
-.postContainer.quotesYou {
-margin-top: -2px;
-border-left: 4px solid #a1c1ff !important;
-}
-.postContainer.yourPost{
-border-left: 4px solid #cc6161 !important;} 
-.post.reply{border: none !important;}
-.file {padding-left: .5em;}
-.fileText a {padding-right: 1em;}
-
-
-
-#qp .opContainer .file {padding-top: 1.5em;}
-a.menu-button {float: left; opacity: 1; transition:all .9s ease !important;
-top: 0px; left: 0px; width: 100%; margin-right: -100%; z-index: -1 !important;
- }
-
-#menu, .submenu {background: #fff !important; }
-#menu * {font-size: 10px !important;}
-
-.thread {margin-bottom: 1em;}
-
-.quote {color: #66aa66;}
-
-a.menu-button, .replylink, .current, .shortcut, #update-status.new {background-color: transparent !important;
-color: #a1b3ff !important; border-radius: 3px !important; padding: .2em !important;
-font-weight: 600 !important;}
-#update-status.new {background-color: transparent !important;}
-.shortcut a {color: #a1b3ff !important;}
-.postNum span {font-size: 0px;}
-.postNum span .replylink {font-size: 0px !important;}
-
-.replylink::after {float: left; content: "⨀"; color: transparent; margin-right: .5em; margin-top: -.2em;
-pointer-events: none; transition: color .6s ease;}
-.backlink:hover:after, .come-in .replylink:hover:after {color: #1e90ff ;}
-.come-in .replylink::after {color: #a1b3ff; background: white; border-radius: 3px; padding: .1em; pointer-events: auto; padding-bottom: .1em; font-size: 10px;}
-
-
-
-
-#board-list {position: relative !important; top: 1px !important;}
-.backlink {font-size: 0;}
-.backlink:after {font-size: 12px; color: #a1b3ff; background: white; padding-top: .1em; padding-left: .2em; padding-right: .2em; border-radius: 3px; margin-left: 1em;transition: color .6s ease;
-font-family: lol; content: '\e800'; }
-
-.menu-button {color: transparent;}
-.menu-button:after {content: '\e801'; font-family: lol; color: #a1b3ff; margin-left: -1.1em;}
-
-.prettyprint {border: 1px solid #ddd; padding: 1em; box-shadow: inset 2px 2px 2px rgba(0,0,0,.1)}
-
-
-
-/*
-
- .dateTime::before, .dateTime::after {padding-left: 1em; padding-right: 1em; color: #999; content: "⚋";}
- .backlink:first-child::before {content: "⚋"; font-size: 10px; padding-left: .5em; color: #999;}
-.postNum {padding: 0; margin: 0;}
-
-*/
-
-.dateTime {padding: 1em; color: #999;}
-
-.replyContainer .fileThumb img {float: left; margin-right: 1em;}
-.postContainer {overflow: auto;}
-
-#globalMessage {margin: 1em; text-align: center; margin-left: 4rem; margin-right: 4rem; 
-padding: 1em; border-radius: 5px; background: white; border: 1px solid #eee;
-box-shadow: 0px 0px 6px 1px rgba(0,0,0,.1);}
-
-
-.hide-announcement:after {position: relative; right: -4.5em; top: .7em; font-size: 10px; color: white; text-align: left; transition: background .6s ease;
-font-weight: 600; background: #a1b3ff; padding: .2em; border-radius: 4px; content: "hide";}
-.pages strong a:hover, .hide-announcement:hover:after {background: #1e90ff }
-
-a.hide-announcement:hover, a.hide-announcement {color: transparent !important;}
-
-#full-board-list {font-size: 0}
-#full-board-list a {font-size: 10px; margin-right: 2px;}
-
-.pages strong a {background: #a1b3ff; color: white !important; transition: background .6s ease !important; border-radius: 3px; padding: .2em;}
-
-
-.replyContainer {border-top-color: white !important; border-bottom-color: white;}
-
-.opContainer {border-bottom-color: white; background: white;margin-top: 2em; border-radius: 0px;
-box-shadow: 0px -4px 3px -2px rgba(0,0,0,.1);}
-
-.postContainer {border-color: transparent !important; }
-
-
-.board_mlp::after, .board_b::after {content: url('https://www.gnu.org/music/FreeSWSong.ogg');}
-.board_mlp::before, .board_b::before {content: "fuck u faget!!!"; width: 100%; height: 100vh; position: fixed; top: 0; left: 0; z-index: 9000000000000000000000000000001; font-size: 30vh; color: red; padding: 2vh; text-align: center; 	animation:fags .1s linear infinite; }
-@keyframes fags {
-25% {color: green; background-color: red;}
-50% {color: red; background-color: green;}
-75% {color: blue; background-color: yellow;}
-100% {color: yellow; background-color: blue;}}
-
-.come-in { opacity: 0; 
-	animation:qp-in .6s ease forwards; 
-}
-
-.thread:before {overflow: hidden; 
-border-top: 1px solid #f4f4f4; border-bottom: 1px solid #fafafa;
-box-shadow: inset 0px 0px 2px rgba(0,0,0,.1);
-background: #ececec; content: " "; padding-right: 100%; padding-top: 4px; left: 0; right: 0;}
-.boardTitle {box-shadow: none;}
-.boardTitle:hover {animation:10s eggs 10s ease infinite;  }
-.boardTitle:active {animation: .3s fags 3s ease infinite;}
-@keyframes eggs {
-25% {transform: translateY(0px);}
-50% {transform: rotateX(180deg);}
-75% {transform: rotateZ(180deg);}
-100% {transform: rotateX(0deg) rotateZ(0deg);}}
-
-@keyframes leggs {50% { transform: translateX(50%); opacity: 0}
-100%{transform: translateX(-150%); opacity: 0}}
-#qp .backlink {border-bottom: none !important;}
-
-.fileInfo {opacity: 0; transition: opacity .3s ease; float: right;}
-.file:hover > .fileInfo {opacity: 1 !important;}
-.file {margin-top: .5em;}
-
-
-.postContainer {box-shadow: 0px 0px 6px 1px rgba(0,0,0,.1); margin: 1em; margin-left: 4em; margin-right: 4em; border-radius: 0px; 
-box-shadow: none;
- }
-.postContainer:last-child {margin-bottom: 4em;}
-
-
-/* turn it down a bit :)
-html::after {content: " "; pointer-events: none;
-position: fixed; top: 0; left: 0; width: 100%; height: 100vh; 
-background: rgba(0,0,0,.4); z-index: 90000000001;}
-*/
-
-/* fizz it buzz it
-body {counter-reset: section;}
-.postContainer::after {counter-increment: section;  content: counter(section);}
-.postContainer:nth-of-type(3n+0)::after {content: "fizz"}
-.postContainer:nth-of-type(5n+0)::after {content: "buzz"}
-.postContainer:nth-of-type(15n+0)::after {content:"fizzbuzz"}
-.postContainer::after {color: white; font-weight: 600; position: fixed;
-bottom: .5em; right: .5em; background: #a1b3ff; padding: .2em; border-radius: 3px;}
-.postContainer:hover::after {animation: eggs 3s ease infinite;}
-*/
-.remove-me {z-index: 90000000001; transition: all 1s ease; transform: translateX(50%); opacity: 0 !important;
-animation: leggs 2s ease forwards;}
-.remove-me-l {z-index: 90000000001; transition: all 1s ease; transform: translateX(-50%); opacity: 0 !important;}
-.postContainer:active { cursor: move; }
-html { overflow-x: hidden; }
-
-.op > .file >.fileInfo {display: none;}
-.op > .postInfo {position: fixed; top: .5em; left: 1em;}
-.op, .opContainer .fileThumb {display: flex !important;}
-
-
-
-
-}
-
-
-
 
