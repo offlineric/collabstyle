@@ -358,14 +358,17 @@ hr, .mobile
   transform: translateY(-150vh);
   opacity:.05;
   animation:qp-in .6s ease forwards;
-  width: 70%; z-index: 5000 !important;
-  left: 5em !important; right: 5em !important;
+  width: auto; z-index: 5000 !important;
+  left: 5em !important; right: auto !important;
   pointer-events: none;
 }
 #qp .postContainer {
-  width: 100%;
+  width: auto;
   border-radius: 4px;
+  padding: .5em;
+  padding-bottom: 0;
   box-shadow: 0px 0px 6px 1px rgba(0,0,0,.1);
+
 }
 .qphl {
   outline: none !important;opacity: 0; 
@@ -540,6 +543,7 @@ margin-left: -1em;
   overflow: auto;
   margin: 0; 
   padding: 1em; 
+  padding-bottom: .5em;
   background: #fff; 
   transform-style: preserve-3d;
   transform: translateZ(0);
@@ -576,6 +580,7 @@ html {background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAA
   float: left; 
   margin-left: .5em;
   margin-right: .5em;
+  margin-bottom: 1em;
 }
 .backlink {
   font-size: 0;
