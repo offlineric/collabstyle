@@ -26,6 +26,8 @@ be sure to check the testing versions for the latest updates. but don't be scare
 
 p.s. you can find instructions for the firefox userchrome over here
 
+
 https://github.com/offlineric/this_repo_will_self_destruct/blob/master/README.md
 
 p.p.s. be sure to check out what Johnny is up to for some more next level shit. none of this happens without him
+p.p.p.s. if you can't figure out how to put the settings for 4chan-x (important ones are persistant qr, no thread watcher, and some other stuff that i forget) you can use my [exported](https://raw.github.com/offlineric/collabstyle/master/settings.json) settings to save some time. warning: this will have some filters and stuff that you may not want. 
