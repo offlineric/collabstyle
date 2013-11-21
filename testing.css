@@ -93,6 +93,12 @@ a {
 .postMessage a {
   color: #a1b3ff !important;
 }
+.inline a {
+  color: #444 !important;
+}
+.inline .postMessage a {
+  color: #a1b3ff !important;
+}
 
 /*
 Normalise font-weight across browsers and
@@ -305,9 +311,10 @@ hr, .mobile
 }
 @keyframes sets-in {
   from {transform: translateX(100%) translateY(-50%); opacity: 0}
-  to {transform: translateX(-50%) translateY(-50%); opacity: 1;}
+  to {transform: translateX(0%) translateY(-50%); opacity: 1;}
 }
 @keyframes notes-in {
+from {transform: translateY(-150vh); opacity: 0;}	
   to {transform: translateY(0%); opacity: 1; }
 }
 @keyframes entry-in {
@@ -328,7 +335,7 @@ hr, .mobile
 }
 
 #fourchanx-settings.lol {
-  transition: all .9s ease !important;
+  transition: all .6s ease !important;
   transform: translateX(100%) translateY(-50%) !important;
 }
 .notification.lol {
@@ -467,11 +474,14 @@ opacity: 0;
 /* notifications */
 
 #notifications >* {
-  transform: translateY(-150vh); 
-  opacity: 0;	
+
   animation:notes-in .9s ease forwards; 	
   background: #a1b2ff !important; 
-  margin-top: 5px !important;	 
+  margin-top: 5px !important;
+}
+#notifications:hover {
+  opacity: 1;
+  transform: translateY(0);
 }
 #notifications .warning {
   background: #cc6161 !important;
@@ -599,7 +609,7 @@ margin-left: -1em;
 .quotelink.you:after {
   font-size: 8pt; 
   font-weight: bold; 
-  content: "@your name"; 
+  content: "@eric"; 
   color: #cc6161;
 }
 
@@ -729,9 +739,8 @@ padding-left: 0;
 
 
 /* FIX ME PLEASE FOR THE LOVE OF GOD AND ALL THAT IS HOLY */
-.fileInfo {opacity: 0; transition: opacity .3s ease 1s; float: right; position: relative; top: -1.8em; 
-right: 0em;}
-.fileText a {display: none;}
+.fileInfo {opacity: 0; transition: opacity .3s ease 1s;  position: fixed; top: .5em;right: .5em; }
+
 .post:hover .fileInfo {opacity: 1 !important; transition: opacity .3s ease 0s;}
 a.menu-button {float: right; opacity: 1; transition:all .2s ease 1s !important; margin: 0 !important;
 top: -1.6em; left: 0; width: 100%; margin-right: -100%; z-index: 1 !important; max-height: 1.9em !important;
@@ -763,7 +772,7 @@ pointer-events: auto !important; transition: opacity .3s ease 1s !important;}
   padding-top: 1rem;
 }
 .post.op .menu-button:after {
-  padding-top: 3px;
+  padding-top: .7em;
 }
 .op .fileThumb {
   margin-top: 1em;
@@ -784,15 +793,21 @@ pointer-events: auto !important; transition: opacity .3s ease 1s !important;}
 /* settings */
 
 #fourchanx-settings {
-	background:#fff !important;
-	border-radius:5px !important;
-	border:1px solid #aaa !important;
-	box-shadow:0px 2px 8px rgba(0,0,0,.8) !important;
-	transform: translateX(100%); opacity: 0;
-	animation:sets-in .9s ease forwards; 
-transition: transform .9s ease !important;
+  background:#fff !important;
+  border-radius:0px !important;
+  border-left:1rem solid #fff !important;
+  border-bottom: none !important;
+  border-top: none !important;
+  box-shadow:0px 2px 8px rgba(0,0,0,.8) !important;
+  transform: translateX(100%); opacity: 0;
+  animation:sets-in .6s ease forwards; 
+  transition: transform .6s ease !important;
+  height: 100% !important;
+  width: 50% !important;
+}
+#overlay {
 
-
+width: 300% !important;
 }
 
 /* pagelist */
@@ -820,7 +835,26 @@ transition: transform .9s ease !important;
 
 /* thread separators */
 
+/* announcements */
 
+
+#globalMessage a {
+  color: #a1b3ff !important;
+}
+a.hide-announcement {
+  color: #cc6161 !important;
+  visibility: hidden;
+}
+a.hide-announcement:hover:before {
+  color: #ff0000 !important;
+}
+a.hide-announcement:before {
+  font-size: 10pt;
+  visibility: visible;
+  font-weight: bold;
+  content: "x";
+}
+  
 
 /* qr fun time */
 
