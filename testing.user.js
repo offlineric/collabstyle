@@ -109,7 +109,7 @@ function dragToKill()
         if (ui.offset.left > 100) {el.addClass("remove-me");};
         if (ui.offset.left <-100) {el.addClass("remove-me-l");};
         el.draggable('destroy');
-        el.css("margin-bottom","-"+(el.height()+20)+"px"); //fixme. 20 is height of top and bottom margins +1 more for some reason
+        el.css("margin-bottom","-"+(el.height()+7)+"px"); //fixme. 20 is height of top and bottom margins +1 more for some reason
         el.css("pointer-events","none");
         setTimeout( seeModules, 500 );
        }
