@@ -15,18 +15,6 @@
 // @require    http://codeorigin.jquery.com/ui/1.10.3/jquery-ui.min.js
 // ==/UserScript==
 
-/*
- * jQuery appear plugin
- *
- * Copyright (c) 2012 Andrey Sidorov
- * licensed under MIT license.
- *
- * https://github.com/morr/jquery.appear/
- *
- * Version: 0.3.3
- */
-
-
 
 $('link[rel=stylesheet]').remove();
 
