@@ -18,10 +18,9 @@ enjoy your animated 4chan
 
 ### what's new?
 
-![new hotness!](http://a.pomf.se/0Yf1.gif)
+sticky header and major visual overhaul. 
 
-![newer hotness!](http://i.imgur.com/bVTz9Z7.gif)
-be sure to check the testing versions for the latest updates. but don't be scared when it's still crappy and even more broken 
+file:///home/eric/Pictures/Screenshot%20from%202013-12-15%2010:52:15.png
 
 
 p.s. you can find instructions for the firefox userchrome over here
