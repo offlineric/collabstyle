@@ -20,8 +20,6 @@ enjoy your animated 4chan
 
 sticky header and major visual overhaul. 
 
-file:///home/eric/Pictures/Screenshot%20from%202013-12-15%2010:52:15.png
-
 
 p.s. you can find instructions for the firefox userchrome over here
 
