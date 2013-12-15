@@ -13,15 +13,30 @@
 // @version     1
 // @require    http://codeorigin.jquery.com/jquery.min.js
 // @require    http://codeorigin.jquery.com/ui/1.10.3/jquery-ui.min.js
-
 // ==/UserScript==
 
+/*
+ * jQuery appear plugin
+ *
+ * Copyright (c) 2012 Andrey Sidorov
+ * licensed under MIT license.
+ *
+ * https://github.com/morr/jquery.appear/
+ *
+ * Version: 0.3.3
+ */
+
+
+
 $('link[rel=stylesheet]').remove();
+
+
+
 
 var win = $(window);
 var oldCount = 0;
 
-
+header = $("#header-bar");
 
 function inViewport (el, htmlClientHeight) {
 
@@ -32,8 +47,7 @@ function inViewport (el, htmlClientHeight) {
 
     return ( !!r 
       && r.bottom >= 0 
-      && r.top <= htmlClientHeight 
-
+      && r.top - 10 <= htmlClientHeight 
     );
 
 }
@@ -52,18 +66,17 @@ window.requestAnimFrame = (function(){
 })();
 
 
-var $modules = $('.postContainer, .summary, .pagelist');
 function seeModules () {
     html = document.documentElement;
 var hch =  html.clientHeight;
 
+
   $modules.each(function(i, el) {
-    var $el = $modules.eq(i);
-    if (inViewport(el, hch) == true) {
+
+    if (inViewport(this, hch) == true) {
       $modules
         .splice(i, 1);
       el.classList.add("come-in")
-
     } 
   });
 }
@@ -109,7 +122,7 @@ function dragToKill()
         if (ui.offset.left > 100) {el.addClass("remove-me");};
         if (ui.offset.left <-100) {el.addClass("remove-me-l");};
         el.draggable('destroy');
-        el.css("margin-bottom","-"+(el.height()+33)+"px"); //fixme. 33 is height of top and bottom margins +1 more for some reason
+        el.css("margin-bottom","-"+(el.height()+7)+"px"); //fixme. 20 is height of top and bottom margins +1 more for some reason
         el.css("pointer-events","none");
         setTimeout( seeModules, 500 );
        }
@@ -118,21 +131,42 @@ function dragToKill()
 }
      dragToKill();
      seeModules();
-$(window).scroll(
-    {
-        previousTop: 0
-    }, 
-    function () {
+     
+
+
+previousTop = 0	
+
+window.addEventListener('scroll', scroller, false);
+
+function scroller () {
+    if ($modules.length > 0) { requestAnimFrame(seeModules);}
     var currentTop = $(window).scrollTop();
+
     if (currentTop < this.previousTop) {
-        $("#header-bar").removeClass("hide-it");
+        header.removeClass("hide-it");
+    if (currentTop < 100 && header.hasClass('fixed') == true) {
+       header.removeClass('fixed');
+    }        
     } else {
 //down
-        $("#header-bar").addClass("hide-it");
+        header.addClass("hide-it");
+        
+    if (currentTop > 100 && header.hasClass('fixed') == false) {
+       header.addClass('fixed');
+    }        
     }
-    if ($modules.length > 0) { requestAnimFrame(seeModules);}
-    this.previousTop = currentTop;
-});
+    
+
+
+            
+    this.previousTop = currentTop;        
+    
+    };
+     
+
+
+
+
 
 
 
