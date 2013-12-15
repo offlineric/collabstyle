@@ -20,6 +20,7 @@ enjoy your animated 4chan
 
 sticky header and major visual overhaul. 
 
+[intended results](http://i.imgur.com/0t1tC6G.png)
 
 p.s. you can find instructions for the firefox userchrome over here
 
