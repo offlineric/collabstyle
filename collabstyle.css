@@ -1,4 +1,8 @@
 @-moz-document domain("boards.4chan.org") { 
+:root {
+	var-name: "@eric";	
+}
+
 strong {font-weight: normal !important;}
     * {
 	font-family:droid sans !important;
@@ -484,7 +488,7 @@ position: fixed; top: 37px; left: 12px; right: 12px; height: 5px; background: #a
 
 
 .quotelink.you {font-size: 0px;}
-.quotelink.you:after {font-size: 8pt; font-weight: bold; content: "@eric"; color: #cc6161;}
+.quotelink.you:after {font-size: 8pt; font-weight: bold; content: var(name); color: #cc6161;}
 
 
 /*
