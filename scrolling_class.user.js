@@ -15,34 +15,30 @@
 // @require    http://codeorigin.jquery.com/ui/1.10.3/jquery-ui.min.js
 // ==/UserScript==
 
+function init() {
+  $('link[rel=stylesheet]').remove();
+  win = $(window);
+  oldCount = 0;
+  header = $("#header-bar");
+  $modules = $('.postContainer, .summary, .pagelist');
+  dragMeKillMe = $('.postContainer');
+  previousTop = 0	
 
-$('link[rel=stylesheet]').remove();
+  dragToKill();
+  seeModules();
+  tripClasses();
 
-
-
-
-var win = $(window);
-var oldCount = 0;
-
-header = $("#header-bar");
+};
 
 function inViewport (el, htmlClientHeight) {
-
-    var r;
-    if ( !el || 1 !== el.nodeType ) { return false; }
-
+  var r;
+  if ( !el || 1 !== el.nodeType ) { return false; }
     r = el.getBoundingClientRect();
-
     return ( !!r 
       && r.bottom >= 0 
       && r.top - 10 <= htmlClientHeight 
-    );
-
-}
-
-
-var $modules = $('.postContainer, .summary, .pagelist');
-
+  );
+};
 
 window.requestAnimFrame = (function(){
   return  window.requestAnimationFrame       ||
@@ -53,23 +49,18 @@ window.requestAnimFrame = (function(){
           };
 })();
 
-
 function seeModules () {
-    html = document.documentElement;
+var html = document.documentElement;
 var hch =  html.clientHeight;
-
-
-  $modules.each(function(i, el) {
-
-    if (inViewport(this, hch) == true) {
-      $modules
-        .splice(i, 1);
-      el.classList.add("come-in")
-    } 
-  });
-}
-
-
+ $modules.each(function(i, el) {
+  var $el = $modules.eq(i);
+  if (inViewport(el, hch) == true) {
+    $modules
+      .splice(i, 1);
+    el.classList.add("come-in")
+  }
+ });
+};
 
 document.addEventListener("ThreadUpdate", function(e){
     newcount = e.detail.postCount - oldCount;
@@ -79,9 +70,8 @@ document.addEventListener("ThreadUpdate", function(e){
     dragMeKillMe = dragMeKillMe.slice(-1*newcount);
     oldCount = e.detail.postCount;
     dragToKill();
+    tripClasses();
 }, false);
-
-var dragMeKillMe = $('.postContainer');
 
 function dragToKill() 
 {
@@ -99,7 +89,7 @@ function dragToKill()
                 }
             else{
                 $(this).draggable( "option", "revert", false );
-                $(this).css("background-color","#fafafa!important");
+                $(this).css("background-color","#fff!important");
                 }
         },
         stop: function(event, ui) 
@@ -110,51 +100,38 @@ function dragToKill()
         if (ui.offset.left > 100) {el.addClass("remove-me");};
         if (ui.offset.left <-100) {el.addClass("remove-me-l");};
         el.draggable('destroy');
-        el.css("margin-bottom","-"+(el.height()+7)+"px"); //fixme. 20 is height of top and bottom margins +1 more for some reason
+        el.css("margin-bottom","-"+(el.outerHeight()+1)+"px"); 
         el.css("pointer-events","none");
         setTimeout( seeModules, 500 );
        }
      }
   });
-}
-     dragToKill();
-     seeModules();
-     
+};
 
+window.addEventListener('scroll', function() {
+  if ($modules.length > 0) { requestAnimFrame(seeModules);}
+  var currentTop = $(window).scrollTop();
+  if (currentTop < this.previousTop) {
+     header.removeClass("hide-it");
+  if (currentTop < 100 && header.hasClass('fixed') == true) {
+     header.removeClass('fixed');
+  }        
+  } else {
+  //down
+     header.addClass("hide-it");
+  if (currentTop > 100 && header.hasClass('fixed') == false) {
+     header.addClass('fixed');
+  }        
+  }
+  this.previousTop = currentTop;        
+}, false);
 
-previousTop = 0	
+function tripClasses() {   
+var $allSpans = $('.postertrip');
+$allSpans.each(function(i, el) {
+    var $el = $allSpans.eq(i);
+    el.classList.add(el.innerHTML);
+});
+};
 
-window.addEventListener('scroll', scroller, false);
-
-function scroller () {
-    if ($modules.length > 0) { requestAnimFrame(seeModules);}
-    var currentTop = $(window).scrollTop();
-
-    if (currentTop < this.previousTop) {
-        header.removeClass("hide-it");
-    if (currentTop < 100 && header.hasClass('fixed') == true) {
-       header.removeClass('fixed');
-    }        
-    } else {
-//down
-        header.addClass("hide-it");
-        
-    if (currentTop > 100 && header.hasClass('fixed') == false) {
-       header.addClass('fixed');
-    }        
-    }
-    
-
-
-            
-    this.previousTop = currentTop;        
-    
-    };
-     
-
-
-
-
-
-
-
+init();
