@@ -27,7 +27,6 @@ function init() {
   dragToKill();
   seeModules();
   tripClasses();
-
 };
 
 function inViewport (el, htmlClientHeight) {
@@ -40,14 +39,6 @@ function inViewport (el, htmlClientHeight) {
   );
 };
 
-window.requestAnimFrame = (function(){
-  return  window.requestAnimationFrame       ||
-          window.webkitRequestAnimationFrame ||
-          window.mozRequestAnimationFrame    ||
-          function( callback ){
-            window.setTimeout(callback, 1000 / 60);
-          };
-})();
 
 function seeModules () {
 var html = document.documentElement;
@@ -61,6 +52,18 @@ var hch =  html.clientHeight;
   }
  });
 };
+
+function refreshModules () {
+ $modules = $('.postContainer, .summary, .pagelist');
+ seeModules();
+};
+
+document.addEventListener("IndexRefresh", function(e){
+  setTimeout( refreshModules, 500 );
+}, false);
+document.addEventListener("IndexBuild", function(e){ 
+  setTimeout( refreshModules, 500 );
+}, false);
 
 document.addEventListener("ThreadUpdate", function(e){
     newcount = e.detail.postCount - oldCount;
@@ -100,7 +103,7 @@ function dragToKill()
         if (ui.offset.left > 100) {el.addClass("remove-me");};
         if (ui.offset.left <-100) {el.addClass("remove-me-l");};
         el.draggable('destroy');
-        el.css("margin-bottom","-"+(el.outerHeight()+1)+"px"); 
+        el.css("margin-bottom","-"+(el.outerHeight())+"px"); 
         el.css("pointer-events","none");
         setTimeout( seeModules, 500 );
        }
@@ -109,7 +112,7 @@ function dragToKill()
 };
 
 window.addEventListener('scroll', function() {
-  if ($modules.length > 0) { requestAnimFrame(seeModules);}
+  if ($modules.length > 0) { seeModules();}
   var currentTop = $(window).scrollTop();
   if (currentTop < this.previousTop) {
      header.removeClass("hide-it");
@@ -127,11 +130,14 @@ window.addEventListener('scroll', function() {
 }, false);
 
 function tripClasses() {   
-var $allSpans = $('.postertrip');
-$allSpans.each(function(i, el) {
+  var $allSpans = $('.postertrip');
+  $allSpans.each(function(i, el) {
     var $el = $allSpans.eq(i);
     el.classList.add(el.innerHTML);
-});
+  });
 };
 
-init();
+document.addEventListener("DOMContentLoaded", function () { 
+    document.removeEventListener("DOMContentLoaded", arguments.callee, false);
+    init();
+});
